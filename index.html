@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>همـ | همتراز، همراز، همدست</title>
+  <meta name="description" content="منشی هوشمند و دفتر مالی هماهنگ برای کسبوکارهای خرد در پیامرسانها">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #eeeeee;
+      --teal: #38a3a5;
+      --navy: #081d53;
+      --muted: #6b6f7d;
+      --size: 72px;
+      --line: 90px;
+      --cap: 36px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: var(--cream);
+      color: var(--navy);
+      font-family: Vazirmatn, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      padding: 48px 24px;
+    }
+    .mark {
+      display: inline-flex;
+      align-items: center;
+      direction: rtl;
+      gap: 8px;
+      font-family: Sahel, sans-serif;
+      font-weight: 700;
+      font-size: var(--size);
+      line-height: var(--line);
+      user-select: none;
+    }
+    .mark__fixed { color: var(--teal); white-space: nowrap; }
+    .roller { overflow: hidden; }
+    .roller ul { margin: 0; padding: 0; list-style: none; }
+    .mark__roller { height: var(--line); color: var(--navy); }
+    .mark__roller ul { animation: ham-drop 9s cubic-bezier(0.77, 0, 0.175, 1) infinite; }
+    .mark__roller li { height: var(--line); white-space: nowrap; text-align: right; }
+
+    .cap {
+      height: var(--cap);
+      font-family: Vazirmatn, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: var(--cap);
+      color: var(--muted);
+    }
+    .cap ul { animation: cap-drop 9s cubic-bezier(0.77, 0, 0.175, 1) infinite; }
+    .cap li {
+      height: var(--cap);
+      white-space: nowrap;
+      text-align: center;
+    }
+    .cap b {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    @keyframes ham-drop {
+      0%, 24% { transform: translateY(-270px); }
+      32%, 56% { transform: translateY(-180px); }
+      64%, 88% { transform: translateY(-90px); }
+      96%, 100% { transform: translateY(0); }
+    }
+    @keyframes cap-drop {
+      0%, 24% { transform: translateY(-108px); }
+      32%, 56% { transform: translateY(-72px); }
+      64%, 88% { transform: translateY(-36px); }
+      96%, 100% { transform: translateY(0); }
+    }
+    @media (max-width: 640px) {
+      :root { --size: 44px; --line: 58px; --cap: 52px; }
+      .cap { font-size: 14px; }
+      .cap li { white-space: normal; line-height: 1.6; padding-top: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="hero">
+    <div class="mark" aria-hidden="true">
+      <span class="mark__fixed">همـ</span>
+      <div class="mark__roller roller">
+        <ul>
+          <li>ـتراز</li>
+          <li>ـراز</li>
+          <li>ـدست</li>
+          <li>ـتراز</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cap roller">
+      <ul>
+        <li><b>همتراز؛</b> سیستم حسابداری هماهنگ با کسبوکار شما</li>
+        <li><b>همراز؛</b> گزارش محرمانهٔ عملکرد، فقط برای مدیر</li>
+        <li><b>همدست؛</b> منشی هوشمندی که مشتری را تا پرداخت همراهی میکند</li>
+        <li><b>همتراز؛</b> سیستم حسابداری هماهنگ با کسبوکار شما</li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>
