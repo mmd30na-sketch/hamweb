@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>همـ — همتراز، همراز، همدست | Ham — AI Business Suite</title>
+  <meta name="description" content="همـ — یک پلتفرم یکپارچهٔ هوش مصنوعی برای حسابداری ابری (همتراز)، گزارش‌های محرمانهٔ مدیریتی (همراز) و فروش محاوره‌ای (همدست). Ham — AI Business Suite.">
+  <meta name="theme-color" content="#38a3a5">
+  <meta property="og:title" content="همـ — Ham AI Business Suite">
+  <meta property="og:description" content="Cloud accounting, owner BI and conversational sales on one shared data layer.">
+  <meta property="og:url" content="https://mmd30na.cloud/">
+  <link rel="icon" href="/logo.png">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@700;900&display=swap" rel="stylesheet">
+  <script>(function(){try{var l=localStorage.getItem('ham-lang');if(l==='en'){document.documentElement.lang='en';document.documentElement.dir='ltr';}}catch(e){}})();</script>
+  <style>
+    :root{--bg:#eeeeee;--surface:#ffffff;--surface2:#f7f8fa;--teal:#38a3a5;--teal-d:#2b8284;--teal-s:#ddf1f1;--navy:#081d53;--muted:#6b6f7d;--line:#e3e5ea;--sun:#ffd166;--coral:#ff8a7a;--lilac:#c9b8ff;--mint:#c7ece4;--sky:#cfe3ff;--sh-card:0 12px 32px rgba(8,29,83,.08);--sh-float:0 20px 48px -6px rgba(8,29,83,.18);--wm:"Estedad","Sahel","Vazirmatn",sans-serif;--max:1240px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--navy);font-family:"Vazirmatn",system-ui,sans-serif;font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    html[lang=fa] [data-lang=en],html[lang=en] [data-lang=fa]{display:none!important}
+    html[lang=en] body{line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    img,svg{display:block}
+    h1,h2,h3,h4,p{margin:0}
+    .wrap{width:min(var(--max),100% - 48px);margin-inline:auto}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;background:var(--teal-s);color:var(--teal-d);font-weight:700;font-size:14px;line-height:1.5}
+    .chip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal)}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:700;font-size:16px;line-height:1.5;border:2px solid transparent;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;white-space:nowrap;font-family:inherit}
+    .btn .arr{order:2;transition:transform .2s ease}
+    html[dir=ltr] .btn .arr,html[dir=ltr] .conn svg{transform:scaleX(-1)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px -8px rgba(8,29,83,.35)}
+    .btn:hover .arr{transform:translateX(-4px)}
+    html[dir=ltr] .btn:hover .arr{transform:scaleX(-1) translateX(-4px)}
+    .btn-primary{background:var(--teal);color:#fff}
+    .btn-dark{background:var(--navy);color:#fff}
+    .btn-secondary{background:#fff;color:var(--navy);border-color:var(--navy)}
+    .btn-ghost-light{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.5)}
+    .spark{width:100%;height:100%}
+    .checks{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+    .checks li{display:flex;gap:12px;align-items:flex-start}
+    .checks .ck{flex:none;color:var(--teal);margin-top:3px}
+    /* header */
+    .site-header{position:sticky;top:0;z-index:50;padding:20px 0 8px}
+    .bar{display:flex;align-items:center;justify-content:space-between;gap:24px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-radius:999px;padding:10px 12px;padding-inline-start:22px;box-shadow:var(--sh-card)}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo-blob{width:40px;height:40px;border-radius:14px;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:var(--wm);font-weight:900;font-size:18px;transition:transform .3s ease}
+    .brand:hover .logo-blob{transform:rotate(-10deg) scale(1.05)}
+    .wm{display:inline-flex;align-items:baseline;font-family:var(--wm);font-weight:900;font-size:30px;line-height:1.2;color:var(--navy)}
+    .wm-suf{display:inline-grid;color:var(--teal);overflow:hidden;height:1.3em}
+    .wm-suf>span{grid-area:1/1;transform:translateY(110%);opacity:0;transition:transform .45s cubic-bezier(.65,0,.35,1),opacity .45s ease}
+    .wm-suf>span.on{transform:none;opacity:1}
+    .wm-suf>span.out{transform:translateY(-110%);opacity:0}
+    .nav{display:flex;gap:34px;font-weight:600}
+    .nav a{position:relative}
+    .nav a::after{content:"";position:absolute;inset-inline:0;bottom:-4px;height:2px;background:var(--teal);border-radius:2px;transform:scaleX(0);transition:transform .25s ease}
+    .nav a:hover::after{transform:scaleX(1)}
+    .actions{display:flex;align-items:center;gap:14px}
+    .lang{display:inline-flex;padding:4px;gap:4px;border-radius:999px;background:var(--surface2);border:1px solid var(--line);font-family:inherit;cursor:pointer}
+    .lang span{padding:5px 14px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);line-height:1.4}
+    html[lang=fa] .lang .l-fa,html[lang=en] .lang .l-en{background:var(--navy);color:#fff}
+    .site-header .btn{padding:12px 24px}
+    /* hero */
+    .hero{padding:36px 0 56px}
+    .hero .wrap{display:flex;align-items:center;justify-content:space-between;gap:40px}
+    .hero-copy{flex:0 1 580px;display:flex;flex-direction:column;align-items:flex-start;gap:26px}
+    .wm-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .tagline{display:inline-grid;color:var(--teal-d);font-weight:500;font-size:17px}
+    .tagline>span{grid-area:1/1;opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
+    .tagline>span.on{opacity:1;transform:none}
+    h1{font-size:clamp(36px,4.4vw,64px);font-weight:900;line-height:1.3;letter-spacing:-.01em}
+    html[lang=en] h1{line-height:1.12;letter-spacing:-.02em}
+    .hero-sub{font-size:19px;color:var(--muted);line-height:1.9}
+    .ctas{display:flex;gap:14px;flex-wrap:wrap}
+    .micro{font-size:14px;color:var(--muted);font-weight:500}
+    .hero-visual{position:relative;flex:0 0 680px;height:780px}
+    .hv-blob{position:absolute;display:block}
+    .hv-teal{left:90px;top:110px;width:520px;height:520px;border-radius:50%;background:var(--teal-s)}
+    .hv-sun{left:520px;top:500px;width:150px;height:150px;border-radius:48px;background:var(--sun);transform:rotate(18deg);animation:spin-slow 18s linear infinite}
+    .hv-coral{left:70px;top:70px;width:90px;height:90px;border-radius:50%;background:var(--coral);animation:bob 5s ease-in-out infinite}
+    .hv-lilac{left:560px;top:40px;width:80px;height:80px;border-radius:26px;background:var(--lilac);transform:rotate(-14deg);animation:bob 6s ease-in-out infinite reverse}
+    .hv-spark{position:absolute;left:40px;top:320px;width:40px;height:40px;color:var(--navy);animation:twinkle 6s linear infinite}
+    .phone{position:absolute;left:150px;top:40px;width:316px;height:700px;padding:10px;border-radius:48px;background:var(--navy);box-shadow:var(--sh-float)}
+    .screen{height:100%;border-radius:38px;background:#fff;overflow:hidden;display:flex;flex-direction:column}
+    .chat-head{display:flex;align-items:center;gap:10px;padding:22px 16px 12px;background:var(--surface2)}
+    .avatar{width:38px;height:38px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:var(--wm);font-weight:900}
+    .chat-head b{display:block;font-size:15px;line-height:1.4}
+    .chat-head small{font-size:11px;color:var(--teal-d)}
+    .online{display:inline-block;width:7px;height:7px;border-radius:50%;background:#2ecc71;margin-inline-end:4px;animation:pulse-dot 1.6s ease-out infinite}
+    .thread{flex:1;display:flex;flex-direction:column;gap:8px;padding:14px 12px;overflow:hidden}
+    .msg{max-width:240px;padding:10px 16px;font-size:14px;font-weight:500;line-height:1.75;transition:opacity .3s ease,transform .3s ease}
+    .msg time{display:block;font-size:11px;font-weight:400;opacity:.7;margin-top:2px}
+    .msg.c{align-self:flex-start;background:var(--teal);color:#fff;border-radius:20px 20px 6px 20px}
+    html[dir=ltr] .msg.c{border-radius:20px 20px 20px 6px}
+    .msg.b{align-self:flex-end;background:#fff;border:1px solid var(--line);border-radius:20px 20px 20px 6px}
+    html[dir=ltr] .msg.b{border-radius:20px 20px 6px 20px}
+    .paycard{align-self:flex-end;width:220px;padding:12px;border-radius:18px;border:1px solid var(--line);background:#fff;display:grid;gap:6px}
+    .paycard b{font-size:13px}
+    .paycard small{font-size:12px;color:var(--muted)}
+    .paybtn{display:block;text-align:center;padding:8px;border-radius:999px;background:var(--teal);color:#fff;font-weight:700;font-size:13px}
+    .receipt{align-self:center;display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:16px;background:var(--mint);color:var(--teal-d)}
+    .receipt b{font-weight:800;font-size:14px}
+    .receipt small{font-size:11px}
+    .typing{align-self:flex-end;display:flex;gap:5px;padding:12px 14px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+    .typing i{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:typing 1.2s ease-in-out infinite}
+    .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+    .js .thread [data-seq]{opacity:0;transform:translateY(12px)}
+    .js .thread [data-seq].show{opacity:1;transform:none}
+    .js .thread [data-seq].gone{display:none}
+    .pop.show{animation:pop .35s cubic-bezier(.2,1.4,.4,1)}
+    .composer{display:flex;align-items:center;gap:8px;padding:12px}
+    .composer span{flex:1;padding:8px 14px;border-radius:999px;background:var(--surface2);font-size:12px;color:var(--muted)}
+    .composer i{width:34px;height:34px;border-radius:50%;background:var(--teal)}
+    .float{position:absolute;padding:18px;border-radius:22px;box-shadow:var(--sh-float)}
+    .f-ledger{left:470px;top:170px;width:250px;background:#fff;--r:-4deg;animation:float-a 4s ease-in-out infinite}
+    .f-profit{left:-10px;top:560px;width:230px;background:var(--navy);color:#fff;--r:5deg;animation:float-b 5s ease-in-out infinite}
+    .float .fh{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;font-weight:700;font-size:13px}
+    .badge{font-style:normal;font-size:11px;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--teal-s);color:var(--teal-d);white-space:nowrap}
+    .lrow{display:flex;justify-content:space-between;gap:8px;padding:8px 10px;border-radius:10px;background:var(--surface2);font-size:12px;margin-top:8px}
+    .lrow span{color:var(--muted)}
+    .lrow b{font-weight:700;color:var(--teal-d)}
+    .bars{display:flex;align-items:flex-end;justify-content:space-between;height:96px;margin:6px 0 10px}
+    .bars i{width:22px;border-radius:7px 7px 3px 3px;background:var(--teal);transform-origin:bottom;animation:grow 1.2s cubic-bezier(.2,.8,.2,1) both}
+    .bars i:last-child{background:var(--sun)}
+    .f-profit small{font-size:11px;opacity:.7}
+    /* marquee */
+    .marquee{background:var(--navy);color:#fff;overflow:hidden;margin:24px 0;padding:22px 0}
+    .mq-track{display:flex;align-items:center;gap:28px;width:max-content;animation:mq 30s linear infinite}
+    html[dir=rtl] .mq-track{animation-name:mq-rtl}
+    .marquee:hover .mq-track{animation-play-state:paused}
+    .mq-item{font-weight:800;font-size:26px;white-space:nowrap;line-height:1.5}
+    .mq-spark{width:26px;height:26px;flex:none;animation:twinkle 6s linear infinite}
+    .sun{color:var(--sun)}.coral{color:var(--coral)}.lilac{color:var(--lilac)}.mint{color:var(--mint)}.sky{color:var(--sky)}.teal{color:var(--teal)}
+    /* sections */
+    section{scroll-margin-top:110px}
+    .sec{padding:100px 0 60px}
+    .sec-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;max-width:860px;margin:0 auto 80px}
+    .sec-head.start{align-items:flex-start;text-align:start;margin-inline:0;max-width:900px;margin-bottom:48px}
+    h2{font-size:clamp(28px,3vw,40px);font-weight:800;line-height:1.4}
+    .lead{font-size:19px;color:var(--muted)}
+    .module{display:flex;align-items:center;justify-content:space-between;gap:48px;margin-bottom:96px}
+    .module.flip{flex-direction:row-reverse}
+    .illo{position:relative;flex:0 0 min(580px,48%);aspect-ratio:580/440;border-radius:40px;overflow:hidden;display:grid;place-items:center;transition:transform .4s ease}
+    .module:hover .illo{transform:rotate(-1deg) scale(1.01)}
+    .m-taraz .illo{background:var(--mint)}.m-raz .illo{background:var(--lilac)}.m-dast .illo{background:var(--sun)}
+    .illo .blob{position:absolute;display:block}
+    .illo .a{width:45%;aspect-ratio:1;border-radius:50%;top:-14%;left:-6%;animation:bob 7s ease-in-out infinite}
+    .illo .b{width:31%;aspect-ratio:1;border-radius:34%;bottom:-18%;right:-6%;transform:rotate(20deg);animation:spin-slow 24s linear infinite}
+    .m-taraz .a{background:var(--teal)}.m-taraz .b{background:var(--sun)}
+    .m-raz .a{background:var(--navy)}.m-raz .b{background:var(--sky)}
+    .m-dast .a{background:var(--coral)}.m-dast .b{background:var(--teal)}
+    .illo .spk{position:absolute;width:36px;height:36px;bottom:10%;left:12%;color:var(--navy);animation:twinkle 6s linear infinite}
+    .card{background:#fff;border-radius:22px;box-shadow:var(--sh-card)}
+    .mini{position:relative;width:min(380px,72%);padding:20px;display:grid;gap:10px}
+    .mini.dark{background:var(--navy);color:#fff}
+    .mini-title{font-size:16px;font-weight:700}
+    .mini-row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px;border-radius:12px;background:var(--surface2);font-weight:500;font-size:13px}
+    .area{width:100%;height:110px}
+    .area-fill{fill:rgba(56,163,165,.25)}
+    .area-line{fill:none;stroke:var(--teal);stroke-width:4;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600}
+    .in .area-line{animation:draw 1.6s ease forwards .3s}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .kpis span{padding:10px 6px;border-radius:12px;background:rgba(255,255,255,.1);text-align:center;font-size:12px;font-weight:500;line-height:1.5}
+    .step{display:flex;align-items:center;gap:10px;font-weight:500;font-size:14px}
+    .step i{flex:none;width:30px;height:30px;border-radius:50%;background:var(--teal-s);color:var(--teal-d);display:grid;place-items:center;font-style:normal;font-weight:700;font-size:13px}
+    .step.last{color:var(--teal-d);font-weight:700}.step.last i{background:var(--teal);color:#fff}
+    .copy{flex:0 1 560px;display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+    .mod-name{font-size:clamp(36px,3.4vw,48px);font-weight:800;line-height:1.3}
+    .mod-tag{font-size:26px;font-weight:700;color:var(--teal-d);line-height:1.5}
+    .mod-desc{color:var(--muted)}
+    /* pipeline */
+    .panel{background:var(--navy);color:#fff;border-radius:48px;padding:64px;overflow:hidden;position:relative}
+    .panel .eyebrow{display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.12);color:var(--sun);font-weight:700;font-size:13px}
+    .panel h2{margin:12px 0 6px}
+    .panel .lead{color:rgba(255,255,255,.7);margin-bottom:44px}
+    .track{display:flex;align-items:center;gap:12px}
+    .pstep{flex:0 0 300px;background:#fff;color:var(--navy);border-radius:32px;padding:28px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;transition:box-shadow .3s ease,transform .3s ease}
+    .pstep.active{box-shadow:0 0 0 4px var(--teal),0 18px 40px -10px rgba(56,163,165,.6);transform:translateY(-6px)}
+    .ptop{display:flex;justify-content:space-between;align-items:center;width:100%}
+    .pnum{font-family:var(--wm);font-weight:900;font-size:44px;line-height:1;color:var(--teal)}
+    .picon{width:72px;height:72px;border-radius:24px;display:grid;place-items:center}
+    .picon.sun{background:var(--sun)}.picon.mint{background:var(--mint)}.picon.lilac{background:var(--lilac)}
+    .pstep h4{font-size:24px;font-weight:900;line-height:1.4}
+    .pstep p{color:var(--muted)}
+    .opill{font-style:normal;padding:5px 12px;border-radius:999px;background:var(--teal-s);color:var(--teal-d);font-weight:700;font-size:12px}
+    .conn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-width:60px}
+    .conn span{width:9px;height:9px;border-radius:50%;background:var(--sun);opacity:.25;animation:flow 1.6s linear infinite}
+    .conn span:nth-child(2){animation-delay:.2s}.conn span:nth-child(3){animation-delay:.4s}.conn span:nth-child(4){animation-delay:.6s}.conn span:nth-child(5){animation-delay:.8s}
+    /* AI */
+    .ai-grid{display:flex;justify-content:space-between;gap:40px;align-items:flex-start}
+    .tiers{flex:0 1 740px;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+    .tier{width:var(--w);display:flex;gap:20px;align-items:flex-start;padding:24px;border-radius:28px;transition:transform .25s ease}
+    .tier:hover{transform:translateX(-6px)}
+    html[dir=ltr] .tier:hover{transform:translateX(6px)}
+    .tier.lilac{background:var(--lilac)}.tier.sky{background:var(--sky)}.tier.mint{background:var(--mint)}
+    .tier,.tier *{color:var(--navy)}
+    .tnum{flex:none;width:56px;height:56px;border-radius:18px;background:var(--navy);display:grid;place-items:center;font-family:var(--wm);font-weight:900;font-size:24px}
+    .tnum span{color:#fff!important}
+    .ttag{display:inline-block;font-style:normal;padding:2px 10px;border-radius:999px;background:rgba(255,255,255,.6);font-weight:700;font-size:11px;margin-bottom:6px}
+    .tier h4{font-size:20px;font-weight:700;line-height:1.5;margin-bottom:6px}
+    .tier p{font-size:14px;opacity:.82}
+    .ai-side{flex:0 0 440px;display:flex;flex-direction:column;gap:20px}
+    .router{display:flex;align-items:center;gap:14px;padding:24px;border-radius:28px;background:var(--teal);color:#fff}
+    .router svg{flex:none;animation:spin-slow 12s linear infinite}
+    .router b{font-size:20px;font-weight:800;display:block;line-height:1.5}
+    .router small{font-size:14px;opacity:.9}
+    .road{padding:32px;border-radius:32px;background:#fff;box-shadow:var(--sh-card)}
+    .road h3{font-size:20px;font-weight:700;line-height:1.5;margin-bottom:10px}
+    .road>p{font-size:14px;color:var(--muted);margin-bottom:20px}
+    .road ul{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+    .road li{display:flex;gap:14px;align-items:flex-start}
+    .road li b{font-size:16px}
+    .road li p{font-size:14px;color:var(--muted)}
+    .mk{flex:none;width:18px;height:18px;border-radius:50%;border:4px solid #fff;box-shadow:0 0 0 1px var(--line);margin-top:6px;background:currentColor}
+    /* stats */
+    .stats{position:relative;overflow:hidden;background:var(--teal);border-radius:48px;color:#fff;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:56px 80px}
+    .stats::before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:var(--sun);left:-90px;bottom:-130px}
+    .stats::after{content:"";position:absolute;width:180px;height:180px;border-radius:56px;background:var(--navy);right:-60px;top:-70px;transform:rotate(24deg)}
+    .stat{position:relative;z-index:1;text-align:center;display:grid;gap:2px}
+    .stat .num{font-family:var(--wm);font-weight:900;font-size:72px;line-height:1.1}
+    .stat>span{font-weight:700;font-size:17px}
+    /* traction */
+    .traction{display:flex;align-items:center;gap:40px;padding:48px;border-radius:40px;background:#fff;box-shadow:var(--sh-card)}
+    .live{flex:0 0 280px;height:200px;border-radius:28px;background:var(--mint);position:relative;overflow:hidden;display:grid;place-items:center}
+    .live i{position:absolute;border-radius:50%;background:var(--teal)}
+    .live .r1{width:120px;height:120px;opacity:.18;animation:ring 2.4s ease-out infinite}
+    .live .r2{width:70px;height:70px;opacity:.35;animation:ring 2.4s ease-out infinite .6s}
+    .live .dot{width:30px;height:30px;background:var(--teal-d)}
+    .live .bl{position:absolute;width:100px;height:100px;border-radius:34px;background:var(--coral);left:-30px;bottom:-50px;transform:rotate(16deg)}
+    .tr-copy{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+    .livepill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--coral);font-weight:700;font-size:12px}
+    .livepill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--navy);animation:pulse-dot 1.6s ease-out infinite}
+    .tr-copy .big{font-size:26px;font-weight:700;color:var(--teal-d);line-height:1.6}
+    /* pricing */
+    .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:center}
+    .plan{background:#fff;border:1px solid var(--line);border-radius:36px;padding:32px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--sh-card);transition:transform .25s ease,box-shadow .25s ease}
+    .plan:hover{transform:translateY(-6px);box-shadow:var(--sh-float)}
+    .plan.hi{border:3px solid var(--teal);box-shadow:var(--sh-float)}
+    .plan .ptop h3{font-size:26px;font-weight:700;line-height:1.4}
+    .pblob{width:44px;height:44px;border-radius:16px;background:currentColor}
+    .plan.hi .pblob{transform:rotate(12deg)}
+    .pnote{font-weight:800;font-size:20px;color:var(--teal-d)}
+    .pdesc{font-size:14px;color:var(--muted)}
+    .plan hr{border:0;border-top:1px solid var(--line);margin:0;width:100%}
+    .plan .checks{font-size:15px}
+    .plan .btn{align-self:center;margin-top:6px}
+    /* founder */
+    .founder{display:flex;align-items:center;justify-content:space-between;gap:48px;padding-inline:40px}
+    .f-copy{flex:0 1 640px;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+    .f-copy h2{font-size:clamp(34px,3.4vw,48px)}
+    .f-role{font-size:26px;font-weight:700;color:var(--teal-d)}
+    .f-bio{padding:18px;border-radius:18px;background:var(--surface2);border:1px dashed var(--line);color:var(--muted);font-size:14px}
+    .links{display:flex;gap:10px;flex-wrap:wrap}
+    .lpill{padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface2);font-weight:700;font-size:13px;transition:background .2s}
+    .lpill:hover{background:#fff}
+    .lpill.t{background:var(--teal-s);border-color:transparent;color:var(--teal-d)}
+    .f-photo{flex:0 0 340px;height:360px;position:relative}
+    .f-photo .sunb{position:absolute;left:20px;top:30px;width:300px;height:300px;border-radius:110px;background:var(--sun);transform:rotate(8deg);animation:spin-wobble 9s ease-in-out infinite}
+    .f-photo .cor{position:absolute;left:260px;top:10px;width:70px;height:70px;border-radius:50%;background:var(--coral);animation:bob 5s ease-in-out infinite}
+    .f-photo .slot{position:absolute;left:50px;top:50px;width:240px;height:260px;border-radius:120px;background:#fff;border:2px dashed var(--teal);display:grid;place-content:center;text-align:center;gap:4px}
+    .f-photo .slot b{font-size:14px}.f-photo .slot small{font-size:11px;color:var(--muted)}
+    .f-photo .spk{position:absolute;left:10px;top:290px;width:34px;height:34px;color:var(--navy)}
+    /* cta */
+    .cta{position:relative;overflow:hidden;background:var(--teal);border-radius:56px;color:#fff;text-align:center;padding:72px 24px;display:flex;flex-direction:column;align-items:center;gap:22px}
+    .cta>*{position:relative;z-index:1}
+    .cta .bl{position:absolute;z-index:0;display:block}
+    .cta .b1{width:320px;height:320px;border-radius:50%;background:var(--navy);left:-80px;bottom:-140px;animation:bob 8s ease-in-out infinite}
+    .cta .b2{width:200px;height:200px;border-radius:64px;background:var(--sun);right:-60px;top:-60px;transform:rotate(20deg);animation:spin-slow 20s linear infinite}
+    .cta .b3{width:60px;height:60px;border-radius:50%;background:var(--coral);left:18%;top:40px;animation:bob 5s ease-in-out infinite}
+    .cta .b4{width:70px;height:70px;border-radius:22px;background:var(--lilac);right:18%;bottom:40px;transform:rotate(-14deg);animation:bob 6s ease-in-out infinite reverse}
+    .cta h2{font-size:clamp(30px,3.4vw,48px);font-weight:800}
+    .cta p{max-width:760px;font-size:19px;opacity:.92}
+    /* footer */
+    footer{background:var(--navy);color:#fff;border-radius:56px 56px 0 0;padding:72px 0 36px;margin-top:40px}
+    .ftop{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+    .fbrand{max-width:420px;display:grid;gap:14px}
+    .fbrand .wm{color:#fff;font-size:40px}
+    .fbrand p{color:rgba(255,255,255,.7)}
+    .fcols{display:flex;gap:24px;flex-wrap:wrap}
+    .fcol{width:200px;display:grid;gap:12px;align-content:start}
+    .fcol b{color:var(--sun);font-weight:800}
+    .fcol a{color:rgba(255,255,255,.72);font-weight:500;transition:color .2s}
+    .fcol a:hover{color:#fff}
+    .fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.15);margin-top:48px;padding-top:24px;color:rgba(255,255,255,.7);font-size:14px}
+    .fbot nav{display:flex;gap:24px}
+    /* reveal */
+    .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+    .js .reveal.in{opacity:1;transform:none}
+    /* keyframes */
+    @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -10px}}
+    @keyframes float-a{0%,100%{transform:rotate(var(--r)) translateY(0)}50%{transform:rotate(var(--r)) translateY(-6px)}}
+    @keyframes float-b{0%,100%{transform:rotate(var(--r)) translateY(0)}50%{transform:rotate(var(--r)) translateY(6px)}}
+    @keyframes spin-slow{to{rotate:360deg}}
+    @keyframes spin-wobble{0%,100%{transform:rotate(8deg)}50%{transform:rotate(-4deg) scale(1.03)}}
+    @keyframes twinkle{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(.8)}100%{transform:rotate(360deg) scale(1)}}
+    @keyframes typing{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
+    @keyframes pop{from{transform:scale(.92)}to{transform:scale(1)}}
+    @keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+    @keyframes mq{to{transform:translateX(-50%)}}
+    @keyframes mq-rtl{to{transform:translateX(50%)}}
+    @keyframes flow{0%,100%{opacity:.25;transform:scale(1)}20%{opacity:1;transform:scale(1.35)}}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    @keyframes ring{0%{transform:scale(.6);opacity:.45}100%{transform:scale(1.8);opacity:0}}
+    @keyframes pulse-dot{0%{box-shadow:0 0 0 0 rgba(46,204,113,.6)}100%{box-shadow:0 0 0 8px rgba(46,204,113,0)}}
+    /* responsive */
+    @media (max-width:1180px){
+      .nav{display:none}
+      .hero .wrap{flex-direction:column}
+      .hero-copy{flex-basis:auto;max-width:720px}
+      .hero-visual{flex:none;transform:scale(.85);transform-origin:top center;margin-bottom:-110px}
+      .module,.module.flip{flex-direction:column;align-items:stretch}
+      .illo{flex:none;width:100%}
+      .copy{flex:none}
+      .ai-grid{flex-direction:column}
+      .ai-side,.tiers{flex:none;width:100%}
+      .tier{width:100%}
+      .track{flex-direction:column}
+      .pstep{flex:none;width:100%}
+      .conn{transform:rotate(90deg);min-height:40px}
+      .plans{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
+      .founder{flex-direction:column-reverse;padding-inline:0}
+      .f-copy{flex:none}
+    }
+    @media (max-width:760px){
+      .wrap{width:calc(100% - 28px)}
+      .bar{padding-inline-start:14px}
+      .site-header .btn{display:none}
+      .wm{font-size:24px}
+      .hero-visual{transform:scale(.5);margin:-20px 0 -390px}
+      .sec{padding:64px 0 32px}
+      .sec-head{margin-bottom:48px}
+      .panel{padding:32px 20px;border-radius:32px}
+      .stats{grid-template-columns:1fr 1fr;padding:40px 20px;border-radius:32px}
+      .stat .num{font-size:52px}
+      .traction{flex-direction:column;padding:28px;align-items:stretch}
+      .live{flex:none}
+      .mod-tag,.tr-copy .big,.f-role{font-size:20px}
+      .cta{border-radius:32px;padding:56px 20px}
+      footer{border-radius:32px 32px 0 0}
+      .ctas .btn{width:100%;justify-content:center}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none!important;transition:none!important}
+      .js .reveal,.js .thread [data-seq]{opacity:1!important;transform:none!important}
+      .area-line{stroke-dashoffset:0}
+      .mq-track{flex-wrap:wrap;width:auto}
+      html{scroll-behavior:auto}
+    }
+  </style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="همـ">
+      <span class="logo-blob">هم</span>
+      <span class="wm" aria-hidden="true">
+        <span data-lang="fa" class="wm-base">همـ</span><span data-lang="en" class="wm-base">Ham</span>
+        <span class="wm-suf" data-rot><span data-lang="fa" class="on">ـتراز</span><span data-lang="fa">ـراز</span><span data-lang="fa">ـدست</span><span data-lang="en" class="on">taraz</span><span data-lang="en">raz</span><span data-lang="en">dast</span></span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="main">
+      <a href="#modules">{{L:ماژول‌ها|Modules}}</a>
+      <a href="#ai">{{L:معماری هوش مصنوعی|AI Architecture}}</a>
+      <a href="#traction">{{L:اجرای عملیاتی|Traction}}</a>
+      <a href="#pricing">{{L:تعرفه‌ها|Pricing}}</a>
+      <a href="#founder">{{L:بنیان‌گذار|Founder}}</a>
+    </nav>
+    <div class="actions">
+      <button class="lang" id="langToggle" type="button" aria-label="Switch language / تغییر زبان"><span class="l-fa">فا</span><span class="l-en">EN</span></button>
+      <a class="btn btn-dark" href="mailto:sina@mmd30na.cloud">{{L:تماس با ما|Contact Us}}</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="chip">{{L:مجموعه کسب‌وکار هوشمند همـ|Ham — AI Business Suite · mmd30na.cloud}}</span>
+      <div class="wm-line">
+        <span class="wm" aria-hidden="true"><span data-lang="fa">همـ</span><span data-lang="en">Ham</span><span class="wm-suf" data-rot><span data-lang="fa" class="on">ـتراز</span><span data-lang="fa">ـراز</span><span data-lang="fa">ـدست</span><span data-lang="en" class="on">taraz</span><span data-lang="en">raz</span><span data-lang="en">dast</span></span></span>
+        <span class="tagline" data-rot><span data-lang="fa" class="on">همتراز؛ سیستم حسابداری هماهنگ با کسب‌وکار شما</span><span data-lang="fa">همراز؛ گزارش محرمانهٔ عملکرد، فقط برای مدیر</span><span data-lang="fa">همدست؛ منشی هوشمندی که مشتری را تا پرداخت همراهی می‌کند</span><span data-lang="en" class="on">Hamtaraz — accounting in sync with your business</span><span data-lang="en">Hamraz — confidential performance reports, owner only</span><span data-lang="en">Hamdast — an AI secretary that walks customers to payment</span></span>
+      </div>
+      <h1>{{L:یک پلتفرم یکپارچهٔ هوش مصنوعی برای حسابداری ابری، گزارش‌های مدیریتی و فروش محاوره‌ای|One Unified AI Business Suite for Cloud Accounting, Owner BI, and Conversational Sales}}</h1>
+      <p class="hero-sub">{{L:«همـ» گفت‌وگوهای فروش با مشتری را مستقیماً به دفاتر حسابداری استاندارد و گزارش‌های محرمانهٔ مدیریتی متصل می‌کند؛ طراحی‌شده بر پایهٔ استانداردهای مالی خاورمیانه و پشتیبانی بومی از زبان‌های راست‌به‌چپ.|Ham connects front-office customer conversations directly to your back-office general ledger and executive reporting—built natively for Middle-East accounting workflows and Persian/Arabic RTL operations.}}</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="{{MAIL}}">{{ARROW}}{{L:درخواست دسترسی آزمایشی (پایلوت)|Request Pilot Access}}</a>
+        <a class="btn btn-secondary" href="#modules">{{L:بررسی سه ماژول یکپارچه|Explore the 3 Modules}}</a>
+      </div>
+      <p class="micro">{{L:همتراز · همراز · همدست — سه ماژول روی یک هستهٔ دادهٔ مشترک|Hamtaraz · Hamraz · Hamdast — three modules on one shared data layer}}</p>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <span class="hv-blob hv-teal"></span><span class="hv-blob hv-sun"></span><span class="hv-blob hv-coral"></span><span class="hv-blob hv-lilac"></span><span class="hv-spark">{{SPARK}}</span>
+      <div class="phone"><div class="screen">
+        <div class="chat-head"><span class="avatar">د</span><div><b>{{L:همدست|Hamdast}}</b><small><i class="online"></i>{{L:آنلاین · منشی هوشمند فروش|Online · AI sales secretary}}</small></div></div>
+        <div class="thread" id="thread">
+          <div class="msg c" data-seq>{{L:سلام، برای ثبت‌نام دورهٔ حسابداری مقدماتی چه کار کنم؟|Hi, how do I enroll in the intro accounting course?}}<time>{{L:۱۰:۲۱|10:21}}</time></div>
+          <div class="typing" data-seq data-typing><i></i><i></i><i></i></div>
+          <div class="msg b" data-seq>{{L:سلام! ظرفیت دوره باز است. لینک ثبت‌نام و پرداخت امن را برایتان بفرستم؟|Hi! Seats are open. Shall I send you the secure enrollment & payment link?}}<time>{{L:۱۰:۲۱|10:21}}</time></div>
+          <div class="msg c" data-seq>{{L:بله، لطفاً|Yes, please}}<time>{{L:۱۰:۲۲|10:22}}</time></div>
+          <div class="typing" data-seq data-typing><i></i><i></i><i></i></div>
+          <div class="paycard pop" data-seq><b>{{L:لینک پرداخت امن|Secure payment link}}</b><small>{{L:سفارش شما آمادهٔ تسویه است|Your order is ready for checkout}}</small><span class="paybtn">{{L:پرداخت آنلاین|Pay online}}</span></div>
+          <div class="receipt pop" data-seq><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="11" fill="#2B8284"/><path d="M6.5 11.5l3 3 6-6.5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><b>{{L:پرداخت موفق|Payment successful}}</b><small>{{L:رسید صادر شد|Receipt issued}}</small></div>
+        </div>
+        <div class="composer"><i></i><span>{{L:پیام بنویسید…|Type a message…}}</span></div>
+      </div></div>
+      <div class="float f-ledger"><div class="fh"><span>{{L:همتراز · سند حسابداری|Hamtaraz · Journal entry}}</span><em class="badge">{{L:ثبت خودکار|Auto-posted}}</em></div>
+        <div class="lrow"><span>{{L:بدهکار: بانک|Debit: Bank}}</span><b>{{L:تطبیق‌شده|Reconciled}}</b></div>
+        <div class="lrow"><span>{{L:بستانکار: درآمد فروش|Credit: Sales revenue}}</span><b>{{L:تطبیق‌شده|Reconciled}}</b></div></div>
+      <div class="float f-profit"><div class="fh"><span>{{L:همراز · سود و زیان درلحظه|Hamraz · Live P&amp;L}}</span></div>
+        <div class="bars"><i style="height:40%;animation-delay:.1s"></i><i style="height:58%;animation-delay:.2s"></i><i style="height:48%;animation-delay:.3s"></i><i style="height:72%;animation-delay:.4s"></i><i style="height:66%;animation-delay:.5s"></i><i style="height:92%;animation-delay:.6s"></i></div>
+        <small>{{L:محرمانه — فقط برای مدیر|Confidential — owner only}}</small></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="mq-track">{{MARQ}}</div></div>
+
+<section class="sec" id="modules">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="chip">{{L:یک پلتفرم واحد · سه ماژول یکپارچه|One Platform · Three Integrated Modules}}</span>
+      <h2>{{L:اتوماسیون کامل از گفت‌وگو با مشتری تا ثبت سند مالی و تحلیل مدیریتی|End-to-End Automation from Chat to Ledger to Executive Insight}}</h2>
+      <p class="lead">{{L:هر سه ماژول بر روی یک هستهٔ دادهٔ مشترک کار می‌کنند تا فروش، حسابداری و گزارش‌های مالک کسب‌وکار به‌صورت درلحظه همگام باشند.|All three modules share a single data layer so sales, accounting, and owner reporting stay synchronized in real time.}}</p>
+    </div>
+    {{MODULES}}
+  </div>
+</section>
+
+<section class="sec" id="pipeline" style="padding-top:20px">
+  <div class="wrap panel reveal">
+    <span class="eyebrow">Unified Data Pipeline</span>
+    <h2>{{L:چرخهٔ یکپارچهٔ داده|Unified Data Pipeline}}</h2>
+    <p class="lead">{{L:از گفت‌وگو تا دفتر کل تا داشبورد مدیر — بدون دوباره‌کاری|From chat to ledger to owner dashboard — zero re-keying}}</p>
+    <div class="track" id="track">{{PIPE}}</div>
+  </div>
+</section>
+
+<section class="sec" id="ai">
+  <div class="wrap">
+    <div class="sec-head start reveal">
+      <span class="chip">{{L:مزیت رقابتی و معماری فنی|Technical Differentiator}}</span>
+      <h2>{{L:معماری چندعامله و چندمدلی با مسیریابی بهینهٔ هزینه|Cost-Aware Multi-Agent, Multi-Model AI Routing}}</h2>
+      <p class="lead">{{L:کسب‌وکارهای کوچک و متوسط به دقت بالای هوش مصنوعی با هزینهٔ مقرون‌به‌صرفه نیاز دارند. «همـ» هر وظیفه را به کم‌هزینه‌ترین مدل توانمند هدایت می‌کند تا هزینهٔ هوش مصنوعی به ازای هر مشتری در کمترین سطح ممکن بماند.|Small and medium businesses need enterprise-grade AI reliability without enterprise token bills. Ham routes every subtask to the lowest-cost capable model to keep AI cost per customer remarkably low.}}</p>
+    </div>
+    <div class="ai-grid">
+      <div class="tiers">{{TIERS}}</div>
+      <div class="ai-side reveal">
+        <div class="router"><svg width="52" height="52" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" fill="#FFD166"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><div><b>{{L:درگاه مسیریابی یکپارچه|Unified routing gateway}}</b><small>{{L:هر وظیفه ← کم‌هزینه‌ترین مدل توانمند|Every subtask → lowest-cost capable model}}</small></div></div>
+        <div class="road"><h3>{{L:نقشهٔ راه زیرساخت و میزبانی مستقل مدل‌های متن‌باز|Infrastructure &amp; Self-Hosted Model Roadmap}}</h3><p>{{L:درگاه مسیریابی هوشمند ما وابستگی به یک مدل واحد را حذف کرده و ضمن حفظ هزینهٔ بسیار پایین به ازای هر مشتری، مسیر مقیاس‌پذیری زیر را دنبال می‌کند:|Our architecture abstracts model providers behind a unified routing gateway, keeping AI cost per customer very low today while preparing for scale:}}</p><ul>{{ROAD}}</ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-label="stats"><div class="stats reveal" id="stats">{{STATS}}</div></section>
+
+<section class="sec" id="traction" style="padding-top:60px;padding-bottom:20px">
+  <div class="wrap traction reveal">
+    <div class="live" aria-hidden="true"><i class="r1"></i><i class="r2"></i><i class="dot"></i><span class="bl"></span></div>
+    <div class="tr-copy">
+      <span class="livepill">Production Traction · LIVE</span>
+      <h2>{{L:وضعیت اجرایی در محیط واقعی|Production Traction}}</h2>
+      <p class="big">{{L:پایلوت زنده: موتور مدیریت ارتباط با مشتری (CRM) و گردش‌کار ما هم‌اکنون به‌صورت عملیاتی در یک آموزشگاه تجاری در حال اجراست|Live pilot: our CRM and workflow engine runs in production at a commercial training academy}}</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="chip">{{L:طرح‌های اشتراک|Transparent Plans}}</span>
+      <h2>{{L:سطوح کاربری متناسب با رشد کسب‌وکار شما|Simple Tiers Built for Growing Businesses}}</h2>
+      <p class="lead">{{L:در مرحلهٔ پایلوت، راه‌اندازی و تنظیم قواعد حسابداری و فروش به‌صورت اختصاصی برای هر کسب‌وکار انجام می‌شود.|We onboard businesses directly during our pilot phase to tailor accounting rules and sales workflows.}}</p>
+    </div>
+    <div class="plans">{{PLANS}}</div>
+  </div>
+</section>
+
+<section class="sec" id="founder">
+  <div class="wrap founder">
+    <div class="f-copy reveal">
+      <span class="chip">{{L:تیم موسس · بنیان‌گذار|Leadership · Founder}}</span>
+      <h2>{{L:سینا رئیسی (Sina Raisi)|Sina Raisi}}</h2>
+      <p class="f-role">{{L:بنیان‌گذار، همـ (Ham)|Founder, Ham}}</p>
+      <p class="f-bio">{{L:بیوگرافی بنیان‌گذار به‌زودی — تجربه در حسابداری مالی، گردش‌کار دفترداری، اتوماسیون CRM و طراحی سیستم‌های چندعاملهٔ هوش مصنوعی.|Founder bio coming soon — domain experience in financial accounting, bookkeeping workflows, CRM automation, and multi-agent AI system design.}}</p>
+      <div class="links"><a class="lpill" href="https://www.linkedin.com" rel="noopener" target="_blank">LinkedIn</a><a class="lpill t" href="mailto:sina@mmd30na.cloud">sina@mmd30na.cloud</a></div>
+    </div>
+    <div class="f-photo reveal" aria-hidden="true"><span class="sunb"></span><span class="cor"></span><div class="slot"><b>{{L:سینا رئیسی|Sina Raisi}}</b><small>{{L:بنیان‌گذار، همـ|Founder, Ham}}</small></div><span class="spk">{{SPARK}}</span></div>
+  </div>
+</section>
+
+<section class="wrap" style="padding:40px 0 80px">
+  <div class="cta reveal">
+    <span class="bl b1"></span><span class="bl b2"></span><span class="bl b3"></span><span class="bl b4"></span>
+    <h2>{{L:درخواست دسترسی آزمایشی (پایلوت)|Request Pilot Access}}</h2>
+    <p>{{L:در مرحلهٔ پایلوت، راه‌اندازی و تنظیم قواعد حسابداری و فروش به‌صورت اختصاصی برای هر کسب‌وکار انجام می‌شود.|We onboard businesses directly during our pilot phase to tailor accounting rules and sales workflows.}}</p>
+    <div class="ctas" style="justify-content:center"><a class="btn btn-dark" href="{{MAIL}}">{{ARROW}}{{L:تماس با ما|Contact Us}}</a><a class="btn btn-ghost-light" href="mailto:sina@mmd30na.cloud">sina@mmd30na.cloud</a></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ftop">
+      <div class="fbrand"><span class="wm"><span data-lang="fa">همـ</span><span data-lang="en">Ham</span><span class="wm-suf" data-rot><span data-lang="fa" class="on">ـدست</span><span data-lang="fa">ـتراز</span><span data-lang="fa">ـراز</span><span data-lang="en" class="on">dast</span><span data-lang="en">taraz</span><span data-lang="en">raz</span></span></span><p>{{L:مجموعه کسب‌وکار هوشمند همـ — همتراز، همراز، همدست|Ham — AI Business Suite: Hamtaraz, Hamraz, Hamdast}}</p></div>
+      <div class="fcols">
+        <div class="fcol"><b>{{L:ماژول‌ها|Modules}}</b><a href="#modules">{{L:همتراز|Hamtaraz}}</a><a href="#modules">{{L:همراز|Hamraz}}</a><a href="#modules">{{L:همدست|Hamdast}}</a></div>
+        <div class="fcol"><b>{{L:همـ|Ham}}</b><a href="#ai">{{L:معماری هوش مصنوعی|AI Architecture}}</a><a href="#traction">{{L:اجرای عملیاتی|Traction}}</a><a href="#pricing">{{L:تعرفه‌ها|Pricing}}</a><a href="#founder">{{L:بنیان‌گذار|Founder}}</a></div>
+        <div class="fcol"><b>{{L:تماس|Contact}}</b><a href="mailto:sina@mmd30na.cloud">sina@mmd30na.cloud</a><a href="https://mmd30na.cloud/">mmd30na.cloud</a><a href="https://www.linkedin.com" rel="noopener" target="_blank">LinkedIn</a></div>
+      </div>
+    </div>
+    <div class="fbot"><span>© 2026 Ham · mmd30na.cloud</span><nav><a href="/privacy.html">{{L:حریم خصوصی|Privacy Policy}}</a><a href="/terms.html">{{L:شرایط استفاده|Terms of Service}}</a></nav></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function setLang(l){root.lang=l;root.dir=l==='fa'?'rtl':'ltr';try{localStorage.setItem('ham-lang',l)}catch(e){}}
+  var t=document.getElementById('langToggle');
+  if(t)t.addEventListener('click',function(){setLang(root.lang==='fa'?'en':'fa')});
+
+  // rotating wordmark suffix + taglines (each lang group rotates independently)
+  var rots=[].slice.call(document.querySelectorAll('[data-rot]'));
+  if(!reduce){var k=0;setInterval(function(){k++;rots.forEach(function(r){['fa','en'].forEach(function(l){var items=[].slice.call(r.querySelectorAll(':scope > [data-lang="'+l+'"]'));if(!items.length)return;var cur=items.findIndex(function(x){return x.classList.contains('on')});var nx=(cur+1)%items.length;items.forEach(function(x){x.classList.remove('out')});if(cur>-1){items[cur].classList.remove('on');items[cur].classList.add('out')}items[nx].classList.add('on');setTimeout(function(){items.forEach(function(x,i){if(i!==nx)x.classList.remove('out')})},500)})})},1800)}
+
+  // hero chat sequence
+  var seq=[].slice.call(document.querySelectorAll('#thread [data-seq]'));
+  if(reduce){seq.forEach(function(e){if(e.hasAttribute('data-typing'))e.classList.add('gone');else e.classList.add('show')})}
+  else{
+    var run=function(){
+      seq.forEach(function(e){e.classList.remove('show','gone')});
+      var t0=400;
+      seq.forEach(function(e,i){
+        if(e.hasAttribute('data-typing')){setTimeout(function(){e.classList.add('show')},t0);t0+=1100;setTimeout(function(){e.classList.add('gone')},t0)}
+        else{setTimeout(function(){e.classList.add('show')},t0);t0+=650}
+      });
+      setTimeout(run,t0+3800);
+    };
+    seq.forEach(function(e){if(e.hasAttribute('data-typing'))e.classList.add('gone')});
+    run();
+  }
+
+  // pipeline active step cycling
+  var steps=[].slice.call(document.querySelectorAll('.pstep'));
+  if(steps.length&&!reduce){var s=0;setInterval(function(){steps.forEach(function(x,i){x.classList.toggle('active',i===s)});s=(s+1)%steps.length},1600)}
+
+  // scroll reveals + count-up
+  var fa=function(n){return String(n).replace(/\d/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'[d]})};
+  function countUp(el){var b=el.querySelector('.num');if(!b||reduce)return;var target=parseInt(b.getAttribute('data-en'),10);var spans=b.querySelectorAll('[data-lang]');var t1=null;function step(ts){if(!t1)t1=ts;var p=Math.min(1,(ts-t1)/900);var v=Math.round(target*p);spans[0].textContent=fa(v);spans[1].textContent=v;if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
+  var els=[].slice.call(document.querySelectorAll('.reveal,.module'));
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var el=en.target;var d=0;if(el.parentElement){var sib=[].slice.call(el.parentElement.children).filter(function(c){return c.classList.contains('reveal')});d=Math.max(0,sib.indexOf(el))*80}el.style.transitionDelay=d+'ms';el.classList.add('in');if(el.id==='stats')[].slice.call(el.querySelectorAll('.stat')).forEach(countUp);io.unobserve(el)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){io.observe(e)});
+  }else{els.forEach(function(e){e.classList.add('in')})}
+})();
+</script>
+</body>
+</html>

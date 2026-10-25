@@ -3,115 +3,592 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>همـ | همتراز، همراز، همدست</title>
-  <meta name="description" content="منشی هوشمند و دفتر مالی هماهنگ برای کسبوکارهای خرد در پیامرسانها">
-  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css" rel="stylesheet">
+  <title>همـ — همتراز، همراز، همدست | Ham — AI Business Suite</title>
+  <meta name="description" content="همـ — یک پلتفرم یکپارچهٔ هوش مصنوعی برای حسابداری ابری (همتراز)، گزارش‌های محرمانهٔ مدیریتی (همراز) و فروش محاوره‌ای (همدست). Ham — AI Business Suite.">
+  <meta name="theme-color" content="#38a3a5">
+  <meta property="og:title" content="همـ — Ham AI Business Suite">
+  <meta property="og:description" content="Cloud accounting, owner BI and conversational sales on one shared data layer.">
+  <meta property="og:url" content="https://mmd30na.cloud/">
+  <link rel="icon" href="/logo.png">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@700;900&display=swap" rel="stylesheet">
+  <script>(function(){try{var l=localStorage.getItem('ham-lang');if(l==='en'){document.documentElement.lang='en';document.documentElement.dir='ltr';}}catch(e){}})();</script>
   <style>
-    :root {
-      --cream: #eeeeee;
-      --teal: #38a3a5;
-      --navy: #081d53;
-      --muted: #6b6f7d;
-      --size: 72px;
-      --line: 90px;
-      --cap: 36px;
+    :root{--bg:#eeeeee;--surface:#ffffff;--surface2:#f7f8fa;--teal:#38a3a5;--teal-d:#2b8284;--teal-s:#ddf1f1;--navy:#081d53;--muted:#6b6f7d;--line:#e3e5ea;--sun:#ffd166;--coral:#ff8a7a;--lilac:#c9b8ff;--mint:#c7ece4;--sky:#cfe3ff;--sh-card:0 12px 32px rgba(8,29,83,.08);--sh-float:0 20px 48px -6px rgba(8,29,83,.18);--wm:"Estedad","Sahel","Vazirmatn",sans-serif;--max:1240px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--navy);font-family:"Vazirmatn",system-ui,sans-serif;font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    html[lang=fa] [data-lang=en],html[lang=en] [data-lang=fa]{display:none!important}
+    html[lang=en] body{line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    img,svg{display:block}
+    h1,h2,h3,h4,p{margin:0}
+    .wrap{width:min(var(--max),100% - 48px);margin-inline:auto}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;background:var(--teal-s);color:var(--teal-d);font-weight:700;font-size:14px;line-height:1.5}
+    .chip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal)}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:700;font-size:16px;line-height:1.5;border:2px solid transparent;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;white-space:nowrap;font-family:inherit}
+    .btn .arr{order:2;transition:transform .2s ease}
+    html[dir=ltr] .btn .arr,html[dir=ltr] .conn svg{transform:scaleX(-1)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px -8px rgba(8,29,83,.35)}
+    .btn:hover .arr{transform:translateX(-4px)}
+    html[dir=ltr] .btn:hover .arr{transform:scaleX(-1) translateX(-4px)}
+    .btn-primary{background:var(--teal);color:#fff}
+    .btn-dark{background:var(--navy);color:#fff}
+    .btn-secondary{background:#fff;color:var(--navy);border-color:var(--navy)}
+    .btn-ghost-light{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.5)}
+    .spark{width:100%;height:100%}
+    .checks{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+    .checks li{display:flex;gap:12px;align-items:flex-start}
+    .checks .ck{flex:none;color:var(--teal);margin-top:3px}
+    /* header */
+    .site-header{position:sticky;top:0;z-index:50;padding:20px 0 8px}
+    .bar{display:flex;align-items:center;justify-content:space-between;gap:24px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-radius:999px;padding:10px 12px;padding-inline-start:22px;box-shadow:var(--sh-card)}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo-blob{width:40px;height:40px;border-radius:14px;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:var(--wm);font-weight:900;font-size:18px;transition:transform .3s ease}
+    .brand:hover .logo-blob{transform:rotate(-10deg) scale(1.05)}
+    .wm{display:inline-flex;align-items:baseline;font-family:var(--wm);font-weight:900;font-size:30px;line-height:1.2;color:var(--navy)}
+    .wm-suf{display:inline-grid;color:var(--teal);overflow:hidden;height:1.3em}
+    .wm-suf>span{grid-area:1/1;transform:translateY(110%);opacity:0;transition:transform .45s cubic-bezier(.65,0,.35,1),opacity .45s ease}
+    .wm-suf>span.on{transform:none;opacity:1}
+    .wm-suf>span.out{transform:translateY(-110%);opacity:0}
+    .nav{display:flex;gap:34px;font-weight:600}
+    .nav a{position:relative}
+    .nav a::after{content:"";position:absolute;inset-inline:0;bottom:-4px;height:2px;background:var(--teal);border-radius:2px;transform:scaleX(0);transition:transform .25s ease}
+    .nav a:hover::after{transform:scaleX(1)}
+    .actions{display:flex;align-items:center;gap:14px}
+    .lang{display:inline-flex;padding:4px;gap:4px;border-radius:999px;background:var(--surface2);border:1px solid var(--line);font-family:inherit;cursor:pointer}
+    .lang span{padding:5px 14px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);line-height:1.4}
+    html[lang=fa] .lang .l-fa,html[lang=en] .lang .l-en{background:var(--navy);color:#fff}
+    .site-header .btn{padding:12px 24px}
+    /* hero */
+    .hero{padding:36px 0 56px}
+    .hero .wrap{display:flex;align-items:center;justify-content:space-between;gap:40px}
+    .hero-copy{flex:0 1 580px;display:flex;flex-direction:column;align-items:flex-start;gap:26px}
+    .wm-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .tagline{display:inline-grid;color:var(--teal-d);font-weight:500;font-size:17px}
+    .tagline>span{grid-area:1/1;opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
+    .tagline>span.on{opacity:1;transform:none}
+    h1{font-size:clamp(36px,4.4vw,64px);font-weight:900;line-height:1.3;letter-spacing:-.01em}
+    html[lang=en] h1{line-height:1.12;letter-spacing:-.02em}
+    .hero-sub{font-size:19px;color:var(--muted);line-height:1.9}
+    .ctas{display:flex;gap:14px;flex-wrap:wrap}
+    .micro{font-size:14px;color:var(--muted);font-weight:500}
+    .hero-visual{position:relative;flex:0 0 680px;height:780px}
+    .hv-blob{position:absolute;display:block}
+    .hv-teal{left:90px;top:110px;width:520px;height:520px;border-radius:50%;background:var(--teal-s)}
+    .hv-sun{left:520px;top:500px;width:150px;height:150px;border-radius:48px;background:var(--sun);transform:rotate(18deg);animation:spin-slow 18s linear infinite}
+    .hv-coral{left:70px;top:70px;width:90px;height:90px;border-radius:50%;background:var(--coral);animation:bob 5s ease-in-out infinite}
+    .hv-lilac{left:560px;top:40px;width:80px;height:80px;border-radius:26px;background:var(--lilac);transform:rotate(-14deg);animation:bob 6s ease-in-out infinite reverse}
+    .hv-spark{position:absolute;left:40px;top:320px;width:40px;height:40px;color:var(--navy);animation:twinkle 6s linear infinite}
+    .phone{position:absolute;left:150px;top:40px;width:316px;height:700px;padding:10px;border-radius:48px;background:var(--navy);box-shadow:var(--sh-float)}
+    .screen{height:100%;border-radius:38px;background:#fff;overflow:hidden;display:flex;flex-direction:column}
+    .chat-head{display:flex;align-items:center;gap:10px;padding:22px 16px 12px;background:var(--surface2)}
+    .avatar{width:38px;height:38px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:var(--wm);font-weight:900}
+    .chat-head b{display:block;font-size:15px;line-height:1.4}
+    .chat-head small{font-size:11px;color:var(--teal-d)}
+    .online{display:inline-block;width:7px;height:7px;border-radius:50%;background:#2ecc71;margin-inline-end:4px;animation:pulse-dot 1.6s ease-out infinite}
+    .thread{flex:1;display:flex;flex-direction:column;gap:8px;padding:14px 12px;overflow:hidden}
+    .msg{max-width:240px;padding:10px 16px;font-size:14px;font-weight:500;line-height:1.75;transition:opacity .3s ease,transform .3s ease}
+    .msg time{display:block;font-size:11px;font-weight:400;opacity:.7;margin-top:2px}
+    .msg.c{align-self:flex-start;background:var(--teal);color:#fff;border-radius:20px 20px 6px 20px}
+    html[dir=ltr] .msg.c{border-radius:20px 20px 20px 6px}
+    .msg.b{align-self:flex-end;background:#fff;border:1px solid var(--line);border-radius:20px 20px 20px 6px}
+    html[dir=ltr] .msg.b{border-radius:20px 20px 6px 20px}
+    .paycard{align-self:flex-end;width:220px;padding:12px;border-radius:18px;border:1px solid var(--line);background:#fff;display:grid;gap:6px}
+    .paycard b{font-size:13px}
+    .paycard small{font-size:12px;color:var(--muted)}
+    .paybtn{display:block;text-align:center;padding:8px;border-radius:999px;background:var(--teal);color:#fff;font-weight:700;font-size:13px}
+    .receipt{align-self:center;display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:16px;background:var(--mint);color:var(--teal-d)}
+    .receipt b{font-weight:800;font-size:14px}
+    .receipt small{font-size:11px}
+    .typing{align-self:flex-end;display:flex;gap:5px;padding:12px 14px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+    .typing i{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:typing 1.2s ease-in-out infinite}
+    .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+    .js .thread [data-seq]{opacity:0;transform:translateY(12px)}
+    .js .thread [data-seq].show{opacity:1;transform:none}
+    .js .thread [data-seq].gone{display:none}
+    .pop.show{animation:pop .35s cubic-bezier(.2,1.4,.4,1)}
+    .composer{display:flex;align-items:center;gap:8px;padding:12px}
+    .composer span{flex:1;padding:8px 14px;border-radius:999px;background:var(--surface2);font-size:12px;color:var(--muted)}
+    .composer i{width:34px;height:34px;border-radius:50%;background:var(--teal)}
+    .float{position:absolute;padding:18px;border-radius:22px;box-shadow:var(--sh-float)}
+    .f-ledger{left:470px;top:170px;width:250px;background:#fff;--r:-4deg;animation:float-a 4s ease-in-out infinite}
+    .f-profit{left:-10px;top:560px;width:230px;background:var(--navy);color:#fff;--r:5deg;animation:float-b 5s ease-in-out infinite}
+    .float .fh{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;font-weight:700;font-size:13px}
+    .badge{font-style:normal;font-size:11px;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--teal-s);color:var(--teal-d);white-space:nowrap}
+    .lrow{display:flex;justify-content:space-between;gap:8px;padding:8px 10px;border-radius:10px;background:var(--surface2);font-size:12px;margin-top:8px}
+    .lrow span{color:var(--muted)}
+    .lrow b{font-weight:700;color:var(--teal-d)}
+    .bars{display:flex;align-items:flex-end;justify-content:space-between;height:96px;margin:6px 0 10px}
+    .bars i{width:22px;border-radius:7px 7px 3px 3px;background:var(--teal);transform-origin:bottom;animation:grow 1.2s cubic-bezier(.2,.8,.2,1) both}
+    .bars i:last-child{background:var(--sun)}
+    .f-profit small{font-size:11px;opacity:.7}
+    /* marquee */
+    .marquee{background:var(--navy);color:#fff;overflow:hidden;margin:24px 0;padding:22px 0}
+    .mq-track{display:flex;align-items:center;gap:28px;width:max-content;animation:mq 30s linear infinite}
+    html[dir=rtl] .mq-track{animation-name:mq-rtl}
+    .marquee:hover .mq-track{animation-play-state:paused}
+    .mq-item{font-weight:800;font-size:26px;white-space:nowrap;line-height:1.5}
+    .mq-spark{width:26px;height:26px;flex:none;animation:twinkle 6s linear infinite}
+    .sun{color:var(--sun)}.coral{color:var(--coral)}.lilac{color:var(--lilac)}.mint{color:var(--mint)}.sky{color:var(--sky)}.teal{color:var(--teal)}
+    /* sections */
+    section{scroll-margin-top:110px}
+    .sec{padding:100px 0 60px}
+    .sec-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;max-width:860px;margin:0 auto 80px}
+    .sec-head.start{align-items:flex-start;text-align:start;margin-inline:0;max-width:900px;margin-bottom:48px}
+    h2{font-size:clamp(28px,3vw,40px);font-weight:800;line-height:1.4}
+    .lead{font-size:19px;color:var(--muted)}
+    .module{display:flex;align-items:center;justify-content:space-between;gap:48px;margin-bottom:96px}
+    .module.flip{flex-direction:row-reverse}
+    .illo{position:relative;flex:0 0 min(580px,48%);aspect-ratio:580/440;border-radius:40px;overflow:hidden;display:grid;place-items:center;transition:transform .4s ease}
+    .module:hover .illo{transform:rotate(-1deg) scale(1.01)}
+    .m-taraz .illo{background:var(--mint)}.m-raz .illo{background:var(--lilac)}.m-dast .illo{background:var(--sun)}
+    .illo .blob{position:absolute;display:block}
+    .illo .a{width:45%;aspect-ratio:1;border-radius:50%;top:-14%;left:-6%;animation:bob 7s ease-in-out infinite}
+    .illo .b{width:31%;aspect-ratio:1;border-radius:34%;bottom:-18%;right:-6%;transform:rotate(20deg);animation:spin-slow 24s linear infinite}
+    .m-taraz .a{background:var(--teal)}.m-taraz .b{background:var(--sun)}
+    .m-raz .a{background:var(--navy)}.m-raz .b{background:var(--sky)}
+    .m-dast .a{background:var(--coral)}.m-dast .b{background:var(--teal)}
+    .illo .spk{position:absolute;width:36px;height:36px;bottom:10%;left:12%;color:var(--navy);animation:twinkle 6s linear infinite}
+    .card{background:#fff;border-radius:22px;box-shadow:var(--sh-card)}
+    .mini{position:relative;width:min(380px,72%);padding:20px;display:grid;gap:10px}
+    .mini.dark{background:var(--navy);color:#fff}
+    .mini-title{font-size:16px;font-weight:700}
+    .mini-row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px;border-radius:12px;background:var(--surface2);font-weight:500;font-size:13px}
+    .area{width:100%;height:110px}
+    .area-fill{fill:rgba(56,163,165,.25)}
+    .area-line{fill:none;stroke:var(--teal);stroke-width:4;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600}
+    .in .area-line{animation:draw 1.6s ease forwards .3s}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .kpis span{padding:10px 6px;border-radius:12px;background:rgba(255,255,255,.1);text-align:center;font-size:12px;font-weight:500;line-height:1.5}
+    .step{display:flex;align-items:center;gap:10px;font-weight:500;font-size:14px}
+    .step i{flex:none;width:30px;height:30px;border-radius:50%;background:var(--teal-s);color:var(--teal-d);display:grid;place-items:center;font-style:normal;font-weight:700;font-size:13px}
+    .step.last{color:var(--teal-d);font-weight:700}.step.last i{background:var(--teal);color:#fff}
+    .copy{flex:0 1 560px;display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+    .mod-name{font-size:clamp(36px,3.4vw,48px);font-weight:800;line-height:1.3}
+    .mod-tag{font-size:26px;font-weight:700;color:var(--teal-d);line-height:1.5}
+    .mod-desc{color:var(--muted)}
+    /* pipeline */
+    .panel{background:var(--navy);color:#fff;border-radius:48px;padding:64px;overflow:hidden;position:relative}
+    .panel .eyebrow{display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.12);color:var(--sun);font-weight:700;font-size:13px}
+    .panel h2{margin:12px 0 6px}
+    .panel .lead{color:rgba(255,255,255,.7);margin-bottom:44px}
+    .track{display:flex;align-items:center;gap:12px}
+    .pstep{flex:0 0 300px;background:#fff;color:var(--navy);border-radius:32px;padding:28px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;transition:box-shadow .3s ease,transform .3s ease}
+    .pstep.active{box-shadow:0 0 0 4px var(--teal),0 18px 40px -10px rgba(56,163,165,.6);transform:translateY(-6px)}
+    .ptop{display:flex;justify-content:space-between;align-items:center;width:100%}
+    .pnum{font-family:var(--wm);font-weight:900;font-size:44px;line-height:1;color:var(--teal)}
+    .picon{width:72px;height:72px;border-radius:24px;display:grid;place-items:center}
+    .picon.sun{background:var(--sun)}.picon.mint{background:var(--mint)}.picon.lilac{background:var(--lilac)}
+    .pstep h4{font-size:24px;font-weight:900;line-height:1.4}
+    .pstep p{color:var(--muted)}
+    .opill{font-style:normal;padding:5px 12px;border-radius:999px;background:var(--teal-s);color:var(--teal-d);font-weight:700;font-size:12px}
+    .conn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-width:60px}
+    .conn span{width:9px;height:9px;border-radius:50%;background:var(--sun);opacity:.25;animation:flow 1.6s linear infinite}
+    .conn span:nth-child(2){animation-delay:.2s}.conn span:nth-child(3){animation-delay:.4s}.conn span:nth-child(4){animation-delay:.6s}.conn span:nth-child(5){animation-delay:.8s}
+    /* AI */
+    .ai-grid{display:flex;justify-content:space-between;gap:40px;align-items:flex-start}
+    .tiers{flex:0 1 740px;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+    .tier{width:var(--w);display:flex;gap:20px;align-items:flex-start;padding:24px;border-radius:28px;transition:transform .25s ease}
+    .tier:hover{transform:translateX(-6px)}
+    html[dir=ltr] .tier:hover{transform:translateX(6px)}
+    .tier.lilac{background:var(--lilac)}.tier.sky{background:var(--sky)}.tier.mint{background:var(--mint)}
+    .tier,.tier *{color:var(--navy)}
+    .tnum{flex:none;width:56px;height:56px;border-radius:18px;background:var(--navy);display:grid;place-items:center;font-family:var(--wm);font-weight:900;font-size:24px}
+    .tnum span{color:#fff!important}
+    .ttag{display:inline-block;font-style:normal;padding:2px 10px;border-radius:999px;background:rgba(255,255,255,.6);font-weight:700;font-size:11px;margin-bottom:6px}
+    .tier h4{font-size:20px;font-weight:700;line-height:1.5;margin-bottom:6px}
+    .tier p{font-size:14px;opacity:.82}
+    .ai-side{flex:0 0 440px;display:flex;flex-direction:column;gap:20px}
+    .router{display:flex;align-items:center;gap:14px;padding:24px;border-radius:28px;background:var(--teal);color:#fff}
+    .router svg{flex:none;animation:spin-slow 12s linear infinite}
+    .router b{font-size:20px;font-weight:800;display:block;line-height:1.5}
+    .router small{font-size:14px;opacity:.9}
+    .road{padding:32px;border-radius:32px;background:#fff;box-shadow:var(--sh-card)}
+    .road h3{font-size:20px;font-weight:700;line-height:1.5;margin-bottom:10px}
+    .road>p{font-size:14px;color:var(--muted);margin-bottom:20px}
+    .road ul{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+    .road li{display:flex;gap:14px;align-items:flex-start}
+    .road li b{font-size:16px}
+    .road li p{font-size:14px;color:var(--muted)}
+    .mk{flex:none;width:18px;height:18px;border-radius:50%;border:4px solid #fff;box-shadow:0 0 0 1px var(--line);margin-top:6px;background:currentColor}
+    /* stats */
+    .stats{position:relative;overflow:hidden;background:var(--teal);border-radius:48px;color:#fff;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:56px 80px}
+    .stats::before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:var(--sun);left:-90px;bottom:-130px}
+    .stats::after{content:"";position:absolute;width:180px;height:180px;border-radius:56px;background:var(--navy);right:-60px;top:-70px;transform:rotate(24deg)}
+    .stat{position:relative;z-index:1;text-align:center;display:grid;gap:2px}
+    .stat .num{font-family:var(--wm);font-weight:900;font-size:72px;line-height:1.1}
+    .stat>span{font-weight:700;font-size:17px}
+    /* traction */
+    .traction{display:flex;align-items:center;gap:40px;padding:48px;border-radius:40px;background:#fff;box-shadow:var(--sh-card)}
+    .live{flex:0 0 280px;height:200px;border-radius:28px;background:var(--mint);position:relative;overflow:hidden;display:grid;place-items:center}
+    .live i{position:absolute;border-radius:50%;background:var(--teal)}
+    .live .r1{width:120px;height:120px;opacity:.18;animation:ring 2.4s ease-out infinite}
+    .live .r2{width:70px;height:70px;opacity:.35;animation:ring 2.4s ease-out infinite .6s}
+    .live .dot{width:30px;height:30px;background:var(--teal-d)}
+    .live .bl{position:absolute;width:100px;height:100px;border-radius:34px;background:var(--coral);left:-30px;bottom:-50px;transform:rotate(16deg)}
+    .tr-copy{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+    .livepill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--coral);font-weight:700;font-size:12px}
+    .livepill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--navy);animation:pulse-dot 1.6s ease-out infinite}
+    .tr-copy .big{font-size:26px;font-weight:700;color:var(--teal-d);line-height:1.6}
+    /* pricing */
+    .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:center}
+    .plan{background:#fff;border:1px solid var(--line);border-radius:36px;padding:32px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--sh-card);transition:transform .25s ease,box-shadow .25s ease}
+    .plan:hover{transform:translateY(-6px);box-shadow:var(--sh-float)}
+    .plan.hi{border:3px solid var(--teal);box-shadow:var(--sh-float)}
+    .plan .ptop h3{font-size:26px;font-weight:700;line-height:1.4}
+    .pblob{width:44px;height:44px;border-radius:16px;background:currentColor}
+    .plan.hi .pblob{transform:rotate(12deg)}
+    .pnote{font-weight:800;font-size:20px;color:var(--teal-d)}
+    .pdesc{font-size:14px;color:var(--muted)}
+    .plan hr{border:0;border-top:1px solid var(--line);margin:0;width:100%}
+    .plan .checks{font-size:15px}
+    .plan .btn{align-self:center;margin-top:6px}
+    /* founder */
+    .founder{display:flex;align-items:center;justify-content:space-between;gap:48px;padding-inline:40px}
+    .f-copy{flex:0 1 640px;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+    .f-copy h2{font-size:clamp(34px,3.4vw,48px)}
+    .f-role{font-size:26px;font-weight:700;color:var(--teal-d)}
+    .f-bio{padding:18px;border-radius:18px;background:var(--surface2);border:1px dashed var(--line);color:var(--muted);font-size:14px}
+    .links{display:flex;gap:10px;flex-wrap:wrap}
+    .lpill{padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface2);font-weight:700;font-size:13px;transition:background .2s}
+    .lpill:hover{background:#fff}
+    .lpill.t{background:var(--teal-s);border-color:transparent;color:var(--teal-d)}
+    .f-photo{flex:0 0 340px;height:360px;position:relative}
+    .f-photo .sunb{position:absolute;left:20px;top:30px;width:300px;height:300px;border-radius:110px;background:var(--sun);transform:rotate(8deg);animation:spin-wobble 9s ease-in-out infinite}
+    .f-photo .cor{position:absolute;left:260px;top:10px;width:70px;height:70px;border-radius:50%;background:var(--coral);animation:bob 5s ease-in-out infinite}
+    .f-photo .slot{position:absolute;left:50px;top:50px;width:240px;height:260px;border-radius:120px;background:#fff;border:2px dashed var(--teal);display:grid;place-content:center;text-align:center;gap:4px}
+    .f-photo .slot b{font-size:14px}.f-photo .slot small{font-size:11px;color:var(--muted)}
+    .f-photo .spk{position:absolute;left:10px;top:290px;width:34px;height:34px;color:var(--navy)}
+    /* cta */
+    .cta{position:relative;overflow:hidden;background:var(--teal);border-radius:56px;color:#fff;text-align:center;padding:72px 24px;display:flex;flex-direction:column;align-items:center;gap:22px}
+    .cta>*{position:relative;z-index:1}
+    .cta .bl{position:absolute;z-index:0;display:block}
+    .cta .b1{width:320px;height:320px;border-radius:50%;background:var(--navy);left:-80px;bottom:-140px;animation:bob 8s ease-in-out infinite}
+    .cta .b2{width:200px;height:200px;border-radius:64px;background:var(--sun);right:-60px;top:-60px;transform:rotate(20deg);animation:spin-slow 20s linear infinite}
+    .cta .b3{width:60px;height:60px;border-radius:50%;background:var(--coral);left:18%;top:40px;animation:bob 5s ease-in-out infinite}
+    .cta .b4{width:70px;height:70px;border-radius:22px;background:var(--lilac);right:18%;bottom:40px;transform:rotate(-14deg);animation:bob 6s ease-in-out infinite reverse}
+    .cta h2{font-size:clamp(30px,3.4vw,48px);font-weight:800}
+    .cta p{max-width:760px;font-size:19px;opacity:.92}
+    /* footer */
+    footer{background:var(--navy);color:#fff;border-radius:56px 56px 0 0;padding:72px 0 36px;margin-top:40px}
+    .ftop{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+    .fbrand{max-width:420px;display:grid;gap:14px}
+    .fbrand .wm{color:#fff;font-size:40px}
+    .fbrand p{color:rgba(255,255,255,.7)}
+    .fcols{display:flex;gap:24px;flex-wrap:wrap}
+    .fcol{width:200px;display:grid;gap:12px;align-content:start}
+    .fcol b{color:var(--sun);font-weight:800}
+    .fcol a{color:rgba(255,255,255,.72);font-weight:500;transition:color .2s}
+    .fcol a:hover{color:#fff}
+    .fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.15);margin-top:48px;padding-top:24px;color:rgba(255,255,255,.7);font-size:14px}
+    .fbot nav{display:flex;gap:24px}
+    /* reveal */
+    .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+    .js .reveal.in{opacity:1;transform:none}
+    /* keyframes */
+    @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -10px}}
+    @keyframes float-a{0%,100%{transform:rotate(var(--r)) translateY(0)}50%{transform:rotate(var(--r)) translateY(-6px)}}
+    @keyframes float-b{0%,100%{transform:rotate(var(--r)) translateY(0)}50%{transform:rotate(var(--r)) translateY(6px)}}
+    @keyframes spin-slow{to{rotate:360deg}}
+    @keyframes spin-wobble{0%,100%{transform:rotate(8deg)}50%{transform:rotate(-4deg) scale(1.03)}}
+    @keyframes twinkle{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(.8)}100%{transform:rotate(360deg) scale(1)}}
+    @keyframes typing{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
+    @keyframes pop{from{transform:scale(.92)}to{transform:scale(1)}}
+    @keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+    @keyframes mq{to{transform:translateX(-50%)}}
+    @keyframes mq-rtl{to{transform:translateX(50%)}}
+    @keyframes flow{0%,100%{opacity:.25;transform:scale(1)}20%{opacity:1;transform:scale(1.35)}}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    @keyframes ring{0%{transform:scale(.6);opacity:.45}100%{transform:scale(1.8);opacity:0}}
+    @keyframes pulse-dot{0%{box-shadow:0 0 0 0 rgba(46,204,113,.6)}100%{box-shadow:0 0 0 8px rgba(46,204,113,0)}}
+    /* responsive */
+    @media (max-width:1180px){
+      .nav{display:none}
+      .hero .wrap{flex-direction:column}
+      .hero-copy{flex-basis:auto;max-width:720px}
+      .hero-visual{flex:none;transform:scale(.85);transform-origin:top center;margin-bottom:-110px}
+      .module,.module.flip{flex-direction:column;align-items:stretch}
+      .illo{flex:none;width:100%}
+      .copy{flex:none}
+      .ai-grid{flex-direction:column}
+      .ai-side,.tiers{flex:none;width:100%}
+      .tier{width:100%}
+      .track{flex-direction:column}
+      .pstep{flex:none;width:100%}
+      .conn{transform:rotate(90deg);min-height:40px}
+      .plans{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
+      .founder{flex-direction:column-reverse;padding-inline:0}
+      .f-copy{flex:none}
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      background: var(--cream);
-      color: var(--navy);
-      font-family: Vazirmatn, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    @media (max-width:760px){
+      .wrap{width:calc(100% - 28px)}
+      .bar{padding-inline-start:14px}
+      .site-header .btn{display:none}
+      .wm{font-size:24px}
+      .hero-visual{transform:scale(.5);margin:-20px 0 -390px}
+      .sec{padding:64px 0 32px}
+      .sec-head{margin-bottom:48px}
+      .panel{padding:32px 20px;border-radius:32px}
+      .stats{grid-template-columns:1fr 1fr;padding:40px 20px;border-radius:32px}
+      .stat .num{font-size:52px}
+      .traction{flex-direction:column;padding:28px;align-items:stretch}
+      .live{flex:none}
+      .mod-tag,.tr-copy .big,.f-role{font-size:20px}
+      .cta{border-radius:32px;padding:56px 20px}
+      footer{border-radius:32px 32px 0 0}
+      .ctas .btn{width:100%;justify-content:center}
     }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 18px;
-      padding: 48px 24px;
-    }
-    .mark {
-      display: inline-flex;
-      align-items: center;
-      direction: rtl;
-      gap: 8px;
-      font-family: Sahel, sans-serif;
-      font-weight: 700;
-      font-size: var(--size);
-      line-height: var(--line);
-      user-select: none;
-    }
-    .mark__fixed { color: var(--teal); white-space: nowrap; }
-    .roller { overflow: hidden; }
-    .roller ul { margin: 0; padding: 0; list-style: none; }
-    .mark__roller { height: var(--line); color: var(--navy); }
-    .mark__roller ul { animation: ham-drop 9s cubic-bezier(0.77, 0, 0.175, 1) infinite; }
-    .mark__roller li { height: var(--line); white-space: nowrap; text-align: right; }
-
-    .cap {
-      height: var(--cap);
-      font-family: Vazirmatn, sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: var(--cap);
-      color: var(--muted);
-    }
-    .cap ul { animation: cap-drop 9s cubic-bezier(0.77, 0, 0.175, 1) infinite; }
-    .cap li {
-      height: var(--cap);
-      white-space: nowrap;
-      text-align: center;
-    }
-    .cap b {
-      color: var(--navy);
-      font-weight: 600;
-    }
-
-    @keyframes ham-drop {
-      0%, 24% { transform: translateY(-270px); }
-      32%, 56% { transform: translateY(-180px); }
-      64%, 88% { transform: translateY(-90px); }
-      96%, 100% { transform: translateY(0); }
-    }
-    @keyframes cap-drop {
-      0%, 24% { transform: translateY(-108px); }
-      32%, 56% { transform: translateY(-72px); }
-      64%, 88% { transform: translateY(-36px); }
-      96%, 100% { transform: translateY(0); }
-    }
-    @media (max-width: 640px) {
-      :root { --size: 44px; --line: 58px; --cap: 52px; }
-      .cap { font-size: 14px; }
-      .cap li { white-space: normal; line-height: 1.6; padding-top: 6px; }
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none!important;transition:none!important}
+      .js .reveal,.js .thread [data-seq]{opacity:1!important;transform:none!important}
+      .area-line{stroke-dashoffset:0}
+      .mq-track{flex-wrap:wrap;width:auto}
+      html{scroll-behavior:auto}
     }
   </style>
 </head>
 <body>
-  <main class="hero">
-    <div class="mark" aria-hidden="true">
-      <span class="mark__fixed">همـ</span>
-      <div class="mark__roller roller">
-        <ul>
-          <li>ـتراز</li>
-          <li>ـراز</li>
-          <li>ـدست</li>
-          <li>ـتراز</li>
-        </ul>
+<script>document.documentElement.classList.add('js')</script>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="همـ">
+      <span class="logo-blob">هم</span>
+      <span class="wm" aria-hidden="true">
+        <span data-lang="fa" class="wm-base">همـ</span><span data-lang="en" class="wm-base">Ham</span>
+        <span class="wm-suf" data-rot><span data-lang="fa" class="on">ـتراز</span><span data-lang="fa">ـراز</span><span data-lang="fa">ـدست</span><span data-lang="en" class="on">taraz</span><span data-lang="en">raz</span><span data-lang="en">dast</span></span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="main">
+      <a href="#modules"><span data-lang="fa">ماژول‌ها</span><span data-lang="en">Modules</span></a>
+      <a href="#ai"><span data-lang="fa">معماری هوش مصنوعی</span><span data-lang="en">AI Architecture</span></a>
+      <a href="#traction"><span data-lang="fa">اجرای عملیاتی</span><span data-lang="en">Traction</span></a>
+      <a href="#pricing"><span data-lang="fa">تعرفه‌ها</span><span data-lang="en">Pricing</span></a>
+      <a href="#founder"><span data-lang="fa">بنیان‌گذار</span><span data-lang="en">Founder</span></a>
+    </nav>
+    <div class="actions">
+      <button class="lang" id="langToggle" type="button" aria-label="Switch language / تغییر زبان"><span class="l-fa">فا</span><span class="l-en">EN</span></button>
+      <a class="btn btn-dark" href="mailto:sina@mmd30na.cloud"><span data-lang="fa">تماس با ما</span><span data-lang="en">Contact Us</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="chip"><span data-lang="fa">مجموعه کسب‌وکار هوشمند همـ</span><span data-lang="en">Ham — AI Business Suite · mmd30na.cloud</span></span>
+      <div class="wm-line">
+        <span class="wm" aria-hidden="true"><span data-lang="fa">همـ</span><span data-lang="en">Ham</span><span class="wm-suf" data-rot><span data-lang="fa" class="on">ـتراز</span><span data-lang="fa">ـراز</span><span data-lang="fa">ـدست</span><span data-lang="en" class="on">taraz</span><span data-lang="en">raz</span><span data-lang="en">dast</span></span></span>
+        <span class="tagline" data-rot><span data-lang="fa" class="on">همتراز؛ سیستم حسابداری هماهنگ با کسب‌وکار شما</span><span data-lang="fa">همراز؛ گزارش محرمانهٔ عملکرد، فقط برای مدیر</span><span data-lang="fa">همدست؛ منشی هوشمندی که مشتری را تا پرداخت همراهی می‌کند</span><span data-lang="en" class="on">Hamtaraz — accounting in sync with your business</span><span data-lang="en">Hamraz — confidential performance reports, owner only</span><span data-lang="en">Hamdast — an AI secretary that walks customers to payment</span></span>
+      </div>
+      <h1><span data-lang="fa">یک پلتفرم یکپارچهٔ هوش مصنوعی برای حسابداری ابری، گزارش‌های مدیریتی و فروش محاوره‌ای</span><span data-lang="en">One Unified AI Business Suite for Cloud Accounting, Owner BI, and Conversational Sales</span></h1>
+      <p class="hero-sub"><span data-lang="fa">«همـ» گفت‌وگوهای فروش با مشتری را مستقیماً به دفاتر حسابداری استاندارد و گزارش‌های محرمانهٔ مدیریتی متصل می‌کند؛ طراحی‌شده بر پایهٔ استانداردهای مالی خاورمیانه و پشتیبانی بومی از زبان‌های راست‌به‌چپ.</span><span data-lang="en">Ham connects front-office customer conversations directly to your back-office general ledger and executive reporting—built natively for Middle-East accounting workflows and Persian/Arabic RTL operations.</span></p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="mailto:sina@mmd30na.cloud?subject=Ham%20Pilot%20Access"><svg class="arr" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0l6-6m-6 6l6 6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-lang="fa">درخواست دسترسی آزمایشی (پایلوت)</span><span data-lang="en">Request Pilot Access</span></a>
+        <a class="btn btn-secondary" href="#modules"><span data-lang="fa">بررسی سه ماژول یکپارچه</span><span data-lang="en">Explore the 3 Modules</span></a>
+      </div>
+      <p class="micro"><span data-lang="fa">همتراز · همراز · همدست — سه ماژول روی یک هستهٔ دادهٔ مشترک</span><span data-lang="en">Hamtaraz · Hamraz · Hamdast — three modules on one shared data layer</span></p>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <span class="hv-blob hv-teal"></span><span class="hv-blob hv-sun"></span><span class="hv-blob hv-coral"></span><span class="hv-blob hv-lilac"></span><span class="hv-spark"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span>
+      <div class="phone"><div class="screen">
+        <div class="chat-head"><span class="avatar">د</span><div><b><span data-lang="fa">همدست</span><span data-lang="en">Hamdast</span></b><small><i class="online"></i><span data-lang="fa">آنلاین · منشی هوشمند فروش</span><span data-lang="en">Online · AI sales secretary</span></small></div></div>
+        <div class="thread" id="thread">
+          <div class="msg c" data-seq><span data-lang="fa">سلام، برای ثبت‌نام دورهٔ حسابداری مقدماتی چه کار کنم؟</span><span data-lang="en">Hi, how do I enroll in the intro accounting course?</span><time><span data-lang="fa">۱۰:۲۱</span><span data-lang="en">10:21</span></time></div>
+          <div class="typing" data-seq data-typing><i></i><i></i><i></i></div>
+          <div class="msg b" data-seq><span data-lang="fa">سلام! ظرفیت دوره باز است. لینک ثبت‌نام و پرداخت امن را برایتان بفرستم؟</span><span data-lang="en">Hi! Seats are open. Shall I send you the secure enrollment & payment link?</span><time><span data-lang="fa">۱۰:۲۱</span><span data-lang="en">10:21</span></time></div>
+          <div class="msg c" data-seq><span data-lang="fa">بله، لطفاً</span><span data-lang="en">Yes, please</span><time><span data-lang="fa">۱۰:۲۲</span><span data-lang="en">10:22</span></time></div>
+          <div class="typing" data-seq data-typing><i></i><i></i><i></i></div>
+          <div class="paycard pop" data-seq><b><span data-lang="fa">لینک پرداخت امن</span><span data-lang="en">Secure payment link</span></b><small><span data-lang="fa">سفارش شما آمادهٔ تسویه است</span><span data-lang="en">Your order is ready for checkout</span></small><span class="paybtn"><span data-lang="fa">پرداخت آنلاین</span><span data-lang="en">Pay online</span></span></div>
+          <div class="receipt pop" data-seq><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="11" fill="#2B8284"/><path d="M6.5 11.5l3 3 6-6.5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><b><span data-lang="fa">پرداخت موفق</span><span data-lang="en">Payment successful</span></b><small><span data-lang="fa">رسید صادر شد</span><span data-lang="en">Receipt issued</span></small></div>
+        </div>
+        <div class="composer"><i></i><span><span data-lang="fa">پیام بنویسید…</span><span data-lang="en">Type a message…</span></span></div>
+      </div></div>
+      <div class="float f-ledger"><div class="fh"><span><span data-lang="fa">همتراز · سند حسابداری</span><span data-lang="en">Hamtaraz · Journal entry</span></span><em class="badge"><span data-lang="fa">ثبت خودکار</span><span data-lang="en">Auto-posted</span></em></div>
+        <div class="lrow"><span><span data-lang="fa">بدهکار: بانک</span><span data-lang="en">Debit: Bank</span></span><b><span data-lang="fa">تطبیق‌شده</span><span data-lang="en">Reconciled</span></b></div>
+        <div class="lrow"><span><span data-lang="fa">بستانکار: درآمد فروش</span><span data-lang="en">Credit: Sales revenue</span></span><b><span data-lang="fa">تطبیق‌شده</span><span data-lang="en">Reconciled</span></b></div></div>
+      <div class="float f-profit"><div class="fh"><span><span data-lang="fa">همراز · سود و زیان درلحظه</span><span data-lang="en">Hamraz · Live P&amp;L</span></span></div>
+        <div class="bars"><i style="height:40%;animation-delay:.1s"></i><i style="height:58%;animation-delay:.2s"></i><i style="height:48%;animation-delay:.3s"></i><i style="height:72%;animation-delay:.4s"></i><i style="height:66%;animation-delay:.5s"></i><i style="height:92%;animation-delay:.6s"></i></div>
+        <small><span data-lang="fa">محرمانه — فقط برای مدیر</span><span data-lang="en">Confidential — owner only</span></small></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="mq-track"><span class="mq-item"><span data-lang="fa">حسابداری ابری</span><span data-lang="en">Cloud accounting</span></span><span class="mq-spark sun"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">گزارش‌های مدیریتی</span><span data-lang="en">Owner reporting</span></span><span class="mq-spark coral"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">فروش محاوره‌ای</span><span data-lang="en">Conversational sales</span></span><span class="mq-spark lilac"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">پشتیبانی بومی راست‌به‌چپ</span><span data-lang="en">Native RTL support</span></span><span class="mq-spark mint"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">فارسی و عربی</span><span data-lang="en">Persian & Arabic</span></span><span class="mq-spark sky"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">Google Gemini</span><span data-lang="en">Google Gemini</span></span><span class="mq-spark sun"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">مسیریابی بهینهٔ هزینه</span><span data-lang="en">Cost-aware routing</span></span><span class="mq-spark coral"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">پاسخ‌گویی ۲۴ ساعته</span><span data-lang="en">24/7 responses</span></span><span class="mq-spark lilac"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">حسابداری ابری</span><span data-lang="en">Cloud accounting</span></span><span class="mq-spark sun"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">گزارش‌های مدیریتی</span><span data-lang="en">Owner reporting</span></span><span class="mq-spark coral"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">فروش محاوره‌ای</span><span data-lang="en">Conversational sales</span></span><span class="mq-spark lilac"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">پشتیبانی بومی راست‌به‌چپ</span><span data-lang="en">Native RTL support</span></span><span class="mq-spark mint"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">فارسی و عربی</span><span data-lang="en">Persian & Arabic</span></span><span class="mq-spark sky"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">Google Gemini</span><span data-lang="en">Google Gemini</span></span><span class="mq-spark sun"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">مسیریابی بهینهٔ هزینه</span><span data-lang="en">Cost-aware routing</span></span><span class="mq-spark coral"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><span class="mq-item"><span data-lang="fa">پاسخ‌گویی ۲۴ ساعته</span><span data-lang="en">24/7 responses</span></span><span class="mq-spark lilac"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span></div></div>
+
+<section class="sec" id="modules">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="chip"><span data-lang="fa">یک پلتفرم واحد · سه ماژول یکپارچه</span><span data-lang="en">One Platform · Three Integrated Modules</span></span>
+      <h2><span data-lang="fa">اتوماسیون کامل از گفت‌وگو با مشتری تا ثبت سند مالی و تحلیل مدیریتی</span><span data-lang="en">End-to-End Automation from Chat to Ledger to Executive Insight</span></h2>
+      <p class="lead"><span data-lang="fa">هر سه ماژول بر روی یک هستهٔ دادهٔ مشترک کار می‌کنند تا فروش، حسابداری و گزارش‌های مالک کسب‌وکار به‌صورت درلحظه همگام باشند.</span><span data-lang="en">All three modules share a single data layer so sales, accounting, and owner reporting stay synchronized in real time.</span></p>
+    </div>
+    
+    <article class="module m-taraz reveal">
+      <div class="illo"><span class="blob a"></span><span class="blob b"></span><span class="spk"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><div class="mini card"><b class="mini-title"><span data-lang="fa">دفتر کل · اسناد امروز</span><span data-lang="en">General ledger · today</span></b><div class="mini-row"><span><span data-lang="fa">فاکتور فروش · همدست</span><span data-lang="en">Sales invoice · Hamdast</span></span><em class="badge"><span data-lang="fa">ثبت شد</span><span data-lang="en">Posted</span></em></div><div class="mini-row"><span><span data-lang="fa">دریافت بانکی</span><span data-lang="en">Bank receipt</span></span><em class="badge"><span data-lang="fa">ثبت شد</span><span data-lang="en">Posted</span></em></div><div class="mini-row"><span><span data-lang="fa">ثبت سند دوطرفه</span><span data-lang="en">Double-entry voucher</span></span><em class="badge"><span data-lang="fa">ثبت شد</span><span data-lang="en">Posted</span></em></div></div></div>
+      <div class="copy">
+        <span class="chip">Hamtaraz · <span data-lang="fa">ماژول ۱</span><span data-lang="en">Module 1</span></span>
+        <h3 class="mod-name"><span data-lang="fa">همتراز</span><span data-lang="en">Hamtaraz</span></h3>
+        <p class="mod-tag"><span data-lang="fa">سیستم حسابداری هماهنگ با کسب‌وکار شما</span><span data-lang="en">Accounting system in sync with your business</span></p>
+        <p class="mod-desc"><span data-lang="fa">سیستم حسابداری ابری منطبق با استانداردهای حسابداری بومی خاورمیانه، ساختارهای مالیاتی محلی و رابط کاربری کاملاً راست‌به‌چپ (فارسی و عربی).</span><span data-lang="en">Cloud accounting engineered for local Middle-East accounting rules, statutory tax structures, and native Persian/Arabic RTL interfaces.</span></p>
+        <ul class="checks"><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">دفتر کل دوطرفه منطبق با سرفصل‌های استاندارد حسابداری منطقه</span><span data-lang="en">Double-entry general ledger tailored to regional chart-of-accounts standards</span></span></li><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">صدور فاکتور، تقویم مالی و ثبت اسناد با پشتیبانی بومی راست‌به‌چپ</span><span data-lang="en">Native Persian & Arabic RTL invoicing, fiscal calendars, and voucher workflows</span></span></li><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">ثبت خودکار اسناد مالی مستقیماً از تراکنش‌های فروش همدست</span><span data-lang="en">Automated journal entries posted directly from Hamdast sales transactions</span></span></li></ul>
+      </div>
+    </article>
+    <article class="module m-raz flip reveal">
+      <div class="illo"><span class="blob a"></span><span class="blob b"></span><span class="spk"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><div class="mini card dark"><b class="mini-title"><span data-lang="fa">داشبورد محرمانهٔ مدیر</span><span data-lang="en">Owner-only dashboard</span></b><svg class="area" viewBox="0 0 340 110" preserveAspectRatio="none" aria-hidden="true"><path class="area-fill" d="M0 90 C40 80 60 60 100 66 S170 30 210 44 S280 10 340 14 L340 110 L0 110Z"/><path class="area-line" d="M0 90 C40 80 60 60 100 66 S170 30 210 44 S280 10 340 14"/><circle cx="330" cy="15" r="7" fill="#FFD166"/></svg><div class="kpis"><span><span data-lang="fa">جریان نقدینگی</span><span data-lang="en">Cash flow</span></span><span><span data-lang="fa">حاشیه سود</span><span data-lang="en">Margin</span></span><span><span data-lang="fa">سرمایه در گردش</span><span data-lang="en">Working capital</span></span></div></div></div>
+      <div class="copy">
+        <span class="chip">Hamraz · <span data-lang="fa">ماژول ۲</span><span data-lang="en">Module 2</span></span>
+        <h3 class="mod-name"><span data-lang="fa">همراز</span><span data-lang="en">Hamraz</span></h3>
+        <p class="mod-tag"><span data-lang="fa">گزارش محرمانهٔ عملکرد، فقط برای مدیر</span><span data-lang="en">Confidential performance report, for the owner only</span></p>
+        <p class="mod-desc"><span data-lang="fa">گزارش‌های محرمانهٔ مالک و هوش تجاری (BI) برای ارائهٔ تحلیل جریان نقدینگی، حاشیه سود و شاخص‌های کلیدی عملکرد منحصراً برای مدیر کسب‌وکار.</span><span data-lang="en">Private owner reports and business intelligence (BI) delivering confidential cash-flow, margin, and operational briefings exclusively to the business owner.</span></p>
+        <ul class="checks"><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">خلاصه‌گزارش‌های مدیریتی اختصاصی و مشاهدهٔ سود و زیان درلحظه</span><span data-lang="en">Owner-only encrypted executive digests & real-time P&L visibility</span></span></li><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">پرسش‌وپاسخ مالی به زبان طبیعی و هشدار ناهنجاری‌های مالی با هوش مصنوعی</span><span data-lang="en">Natural-language financial Q&A and anomaly alerts powered by AI</span></span></li><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">تحلیل ماندگاری مشتریان، سررسید مطالبات و پایش سرمایه در گردش</span><span data-lang="en">Cohort retention, receivables aging, and net working capital tracking</span></span></li></ul>
+      </div>
+    </article>
+    <article class="module m-dast reveal">
+      <div class="illo"><span class="blob a"></span><span class="blob b"></span><span class="spk"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span><div class="mini card"><b class="mini-title"><span data-lang="fa">مسیر مشتری در همدست</span><span data-lang="en">Customer journey in Hamdast</span></b><div class="step"><i><span data-lang="fa">۱</span><span data-lang="en">1</span></i><span><span data-lang="fa">اولین پیام و مشاوره</span><span data-lang="en">First message & advice</span></span></div><div class="step"><i><span data-lang="fa">۲</span><span data-lang="en">2</span></i><span><span data-lang="fa">استعلام قیمت</span><span data-lang="en">Quote request</span></span></div><div class="step"><i><span data-lang="fa">۳</span><span data-lang="en">3</span></i><span><span data-lang="fa">ثبت سفارش</span><span data-lang="en">Order capture</span></span></div><div class="step last"><i><span data-lang="fa">۴</span><span data-lang="en">4</span></i><span><span data-lang="fa">پرداخت و صدور رسید</span><span data-lang="en">Payment & receipt</span></span></div></div></div>
+      <div class="copy">
+        <span class="chip">Hamdast · <span data-lang="fa">ماژول ۳</span><span data-lang="en">Module 3</span></span>
+        <h3 class="mod-name"><span data-lang="fa">همدست</span><span data-lang="en">Hamdast</span></h3>
+        <p class="mod-tag"><span data-lang="fa">منشی هوشمندی که مشتری را تا پرداخت همراهی می‌کند</span><span data-lang="en">AI secretary that walks the customer all the way to payment</span></p>
+        <p class="mod-desc"><span data-lang="fa">عامل فروش هوشمند که مشتری را از اولین پیام و مشاوره تا ثبت سفارش و پرداخت نهایی همراهی کرده و تراکنش تاییدشده را خودکار در همتراز ثبت می‌کند.</span><span data-lang="en">AI sales agent that manages the entire customer journey from initial chat inquiry to order confirmation and payment—automatically posting verified entries into Hamtaraz.</span></p>
+        <ul class="checks"><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">پاسخ‌گویی ۲۴ ساعته، استعلام قیمت و ثبت سفارش محاوره‌ای</span><span data-lang="en">24/7 conversational product discovery, quoting, and order capture</span></span></li><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">هدایت مشتری تا تسویه، تایید پرداخت و صدور خودکار رسید</span><span data-lang="en">Guided checkout, payment verification, and automated receipt issuance</span></span></li><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">حذف دوباره‌کاری: ثبت آنی هر فروش موفق در دفتر کل همتراز</span><span data-lang="en">Zero manual bookkeeping: every completed sale syncs straight into Hamtaraz</span></span></li></ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="pipeline" style="padding-top:20px">
+  <div class="wrap panel reveal">
+    <span class="eyebrow">Unified Data Pipeline</span>
+    <h2><span data-lang="fa">چرخهٔ یکپارچهٔ داده</span><span data-lang="en">Unified Data Pipeline</span></h2>
+    <p class="lead"><span data-lang="fa">از گفت‌وگو تا دفتر کل تا داشبورد مدیر — بدون دوباره‌کاری</span><span data-lang="en">From chat to ledger to owner dashboard — zero re-keying</span></p>
+    <div class="track" id="track"><div class="pstep reveal" data-step="0"><div class="ptop"><span class="pnum"><span data-lang="fa">۱</span><span data-lang="en">1</span></span><span class="picon sun"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z" stroke="#081D53" stroke-width="2" fill="none" stroke-linejoin="round"/><circle cx="9" cy="12" r="1.2" fill="#081D53"/><circle cx="13" cy="12" r="1.2" fill="#081D53"/><circle cx="17" cy="12" r="1.2" fill="#081D53"/></svg></span></div><h4><span data-lang="fa">همدست</span><span data-lang="en">Hamdast</span></h4><p><span data-lang="fa">همدست گفت‌وگو را به پرداخت قطعی تبدیل می‌کند</span><span data-lang="en">Hamdast converts chat to verified payment</span></p><em class="opill"><span data-lang="fa">خروجی: پرداخت تاییدشده</span><span data-lang="en">Output: verified payment</span></em></div><div class="conn" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 5l-7 7 7 7" stroke="#FFD166" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pstep reveal" data-step="1"><div class="ptop"><span class="pnum"><span data-lang="fa">۲</span><span data-lang="en">2</span></span><span class="picon mint"><svg viewBox="0 0 24 24" width="34" height="34"><rect x="4" y="3" width="16" height="18" rx="3" stroke="#081D53" stroke-width="2" fill="none"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#081D53" stroke-width="2" stroke-linecap="round"/></svg></span></div><h4><span data-lang="fa">همتراز</span><span data-lang="en">Hamtaraz</span></h4><p><span data-lang="fa">همتراز فاکتور و سند حسابداری را ثبت می‌کند</span><span data-lang="en">Hamtaraz posts invoice & ledger entry</span></p><em class="opill"><span data-lang="fa">خروجی: فاکتور + سند دفتر کل</span><span data-lang="en">Output: invoice + ledger entry</span></em></div><div class="conn" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 5l-7 7 7 7" stroke="#FFD166" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pstep reveal" data-step="2"><div class="ptop"><span class="pnum"><span data-lang="fa">۳</span><span data-lang="en">3</span></span><span class="picon lilac"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="#081D53" stroke-width="2.2" stroke-linecap="round"/></svg></span></div><h4><span data-lang="fa">همراز</span><span data-lang="en">Hamraz</span></h4><p><span data-lang="fa">همراز داشبورد محرمانهٔ مدیر را به‌روز می‌کند</span><span data-lang="en">Hamraz updates private owner BI</span></p><em class="opill"><span data-lang="fa">خروجی: داشبورد درلحظه</span><span data-lang="en">Output: real-time dashboard</span></em></div></div>
+  </div>
+</section>
+
+<section class="sec" id="ai">
+  <div class="wrap">
+    <div class="sec-head start reveal">
+      <span class="chip"><span data-lang="fa">مزیت رقابتی و معماری فنی</span><span data-lang="en">Technical Differentiator</span></span>
+      <h2><span data-lang="fa">معماری چندعامله و چندمدلی با مسیریابی بهینهٔ هزینه</span><span data-lang="en">Cost-Aware Multi-Agent, Multi-Model AI Routing</span></h2>
+      <p class="lead"><span data-lang="fa">کسب‌وکارهای کوچک و متوسط به دقت بالای هوش مصنوعی با هزینهٔ مقرون‌به‌صرفه نیاز دارند. «همـ» هر وظیفه را به کم‌هزینه‌ترین مدل توانمند هدایت می‌کند تا هزینهٔ هوش مصنوعی به ازای هر مشتری در کمترین سطح ممکن بماند.</span><span data-lang="en">Small and medium businesses need enterprise-grade AI reliability without enterprise token bills. Ham routes every subtask to the lowest-cost capable model to keep AI cost per customer remarkably low.</span></p>
+    </div>
+    <div class="ai-grid">
+      <div class="tiers"><div class="tier lilac reveal" style="--w:100%"><span class="tnum"><span data-lang="fa">۳</span><span data-lang="en">3</span></span><div><em class="ttag"><span data-lang="fa">دقت بالا · فقط در نقاط کلیدی</span><span data-lang="en">High accuracy · only where it matters</span></em><h4><span data-lang="fa">لایهٔ سوم — استدلال پیچیده و تحلیل مالی پیشرفته با Google Gemini</span><span data-lang="en">Tier 3 — Complex Reasoning & Financial Synthesis with Google Gemini</span></h4><p><span data-lang="fa">مذاکرات چندمرحله‌ای فروش، تطبیق اسناد پیچیدهٔ مالی و تولید گزارش‌های تحلیلی همراز به مدل‌های Gemini ارجاع می‌شوند تا بالاترین دقت در نقاط کلیدی کسب‌وکار تضمین شود.</span><span data-lang="en">Multi-step customer negotiations, ambiguous invoice reconciliation, and Hamraz executive financial narratives are escalated to Gemini—delivering high-accuracy reasoning only where it creates maximum business value.</span></p></div></div><div class="tier sky reveal" style="--w:92%"><span class="tnum"><span data-lang="fa">۲</span><span data-lang="en">2</span></span><div><em class="ttag"><span data-lang="fa">قواعد قطعی · کنترل دسترسی</span><span data-lang="en">Deterministic rules · access control</span></em><h4><span data-lang="fa">لایهٔ دوم — عامل‌های تخصصی دامنه (فروش، حسابداری و گزارش‌دهی)</span><span data-lang="en">Tier 2 — Specialized Domain Agents (Sales, Ledger, BI)</span></h4><p><span data-lang="fa">عامل‌های مجزا برای همدست، همتراز و همراز پیش از ثبت هرگونه داده در پایگاه داده، قواعد قطعی حسابداری و سطوح دسترسی را اعتبارسنجی می‌کنند.</span><span data-lang="en">Dedicated agents for Hamdast, Hamtaraz, and Hamraz enforce deterministic accounting rules, RTL formatting, and role-based access boundaries before any database write occurs.</span></p></div></div><div class="tier mint reveal" style="--w:84%"><span class="tnum"><span data-lang="fa">۱</span><span data-lang="en">1</span></span><div><em class="ttag"><span data-lang="fa">پرتکرار · کم‌هزینه</span><span data-lang="en">High-frequency · low cost</span></em><h4><span data-lang="fa">لایهٔ اول — تشخیص نیت مشتری، دسته‌بندی و استخراج ساختاریافته</span><span data-lang="en">Tier 1 — Lightweight Intent, Routing & Extraction</span></h4><p><span data-lang="fa">پردازش‌های پرتکرار و روزمره (تشخیص اولیهٔ درخواست، سوالات متداول و استخراج فیلدها) توسط مدل‌های متن‌باز سبک، آزمایشی و لایهٔ رایگان انجام می‌شود تا هزینهٔ پایه به حداقل برسد.</span><span data-lang="en">High-frequency routine tasks (greeting, FAQ matching, entity extraction, and schema validation) are handled by free-tier, trial, and compact open-source models—reducing baseline inference cost near zero.</span></p></div></div></div>
+      <div class="ai-side reveal">
+        <div class="router"><svg width="52" height="52" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" fill="#FFD166"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><div><b><span data-lang="fa">درگاه مسیریابی یکپارچه</span><span data-lang="en">Unified routing gateway</span></b><small><span data-lang="fa">هر وظیفه ← کم‌هزینه‌ترین مدل توانمند</span><span data-lang="en">Every subtask → lowest-cost capable model</span></small></div></div>
+        <div class="road"><h3><span data-lang="fa">نقشهٔ راه زیرساخت و میزبانی مستقل مدل‌های متن‌باز</span><span data-lang="en">Infrastructure &amp; Self-Hosted Model Roadmap</span></h3><p><span data-lang="fa">درگاه مسیریابی هوشمند ما وابستگی به یک مدل واحد را حذف کرده و ضمن حفظ هزینهٔ بسیار پایین به ازای هر مشتری، مسیر مقیاس‌پذیری زیر را دنبال می‌کند:</span><span data-lang="en">Our architecture abstracts model providers behind a unified routing gateway, keeping AI cost per customer very low today while preparing for scale:</span></p><ul><li><i class="mk teal"></i><div><b><span data-lang="fa">مرحلهٔ فعلی</span><span data-lang="en">Current Stage</span></b><p><span data-lang="fa">ترکیب هوشمند مدل‌های متن‌باز، لایهٔ رایگان و آزمایشی در کنار Google Gemini برای استدلال‌های پیچیده.</span><span data-lang="en">Dynamic orchestration combining free-tier, trial, and open-source endpoints with Google Gemini for hard reasoning tasks.</span></p></div></li><li><i class="mk sun"></i><div><b><span data-lang="fa">گام بعدی زیرساخت</span><span data-lang="en">Next Milestone</span></b><p><span data-lang="fa">استقرار و میزبانی مستقل مدل‌های متن‌باز بهینه‌شده بر روی زیرساخت ابری کم‌هزینه برای پردازش‌های پرتکرار فارسی و عربی.</span><span data-lang="en">Deploying quantized self-hosted open models on low-cost cloud infrastructure for high-volume RTL classification and bookkeeping automation.</span></p></div></li><li><i class="mk coral"></i><div><b><span data-lang="fa">مقیاس‌پذیری ابری</span><span data-lang="en">Cloud Scale</span></b><p><span data-lang="fa">گسترش معماری ترکیبی چندعامله و یکپارچگی با Gemini بر بستر Google Cloud.</span><span data-lang="en">Scaling hybrid multi-agent workloads and Gemini API integration on Google Cloud.</span></p></div></li></ul></div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="cap roller">
-      <ul>
-        <li><b>همتراز؛</b> سیستم حسابداری هماهنگ با کسبوکار شما</li>
-        <li><b>همراز؛</b> گزارش محرمانهٔ عملکرد، فقط برای مدیر</li>
-        <li><b>همدست؛</b> منشی هوشمندی که مشتری را تا پرداخت همراهی میکند</li>
-        <li><b>همتراز؛</b> سیستم حسابداری هماهنگ با کسبوکار شما</li>
-      </ul>
+<section class="wrap" aria-label="stats"><div class="stats reveal" id="stats"><div class="stat reveal"><b class="num" data-fa="۳" data-en="3"><span data-lang="fa">۳</span><span data-lang="en">3</span></b><span><span data-lang="fa">ماژول یکپارچه</span><span data-lang="en">integrated modules</span></span></div><div class="stat reveal"><b class="num" data-fa="۱" data-en="1"><span data-lang="fa">۱</span><span data-lang="en">1</span></b><span><span data-lang="fa">هستهٔ دادهٔ مشترک</span><span data-lang="en">shared data layer</span></span></div><div class="stat reveal"><b class="num" data-fa="۳" data-en="3"><span data-lang="fa">۳</span><span data-lang="en">3</span></b><span><span data-lang="fa">لایهٔ مسیریابی هوش مصنوعی</span><span data-lang="en">AI routing tiers</span></span></div><div class="stat reveal"><b class="num" data-fa="۲۴" data-en="24"><span data-lang="fa">۲۴</span><span data-lang="en">24</span></b><span><span data-lang="fa">ساعته پاسخ‌گویی همدست</span><span data-lang="en">hour Hamdast responses</span></span></div></div></section>
+
+<section class="sec" id="traction" style="padding-top:60px;padding-bottom:20px">
+  <div class="wrap traction reveal">
+    <div class="live" aria-hidden="true"><i class="r1"></i><i class="r2"></i><i class="dot"></i><span class="bl"></span></div>
+    <div class="tr-copy">
+      <span class="livepill">Production Traction · LIVE</span>
+      <h2><span data-lang="fa">وضعیت اجرایی در محیط واقعی</span><span data-lang="en">Production Traction</span></h2>
+      <p class="big"><span data-lang="fa">پایلوت زنده: موتور مدیریت ارتباط با مشتری (CRM) و گردش‌کار ما هم‌اکنون به‌صورت عملیاتی در یک آموزشگاه تجاری در حال اجراست</span><span data-lang="en">Live pilot: our CRM and workflow engine runs in production at a commercial training academy</span></p>
     </div>
-  </main>
+  </div>
+</section>
+
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="chip"><span data-lang="fa">طرح‌های اشتراک</span><span data-lang="en">Transparent Plans</span></span>
+      <h2><span data-lang="fa">سطوح کاربری متناسب با رشد کسب‌وکار شما</span><span data-lang="en">Simple Tiers Built for Growing Businesses</span></h2>
+      <p class="lead"><span data-lang="fa">در مرحلهٔ پایلوت، راه‌اندازی و تنظیم قواعد حسابداری و فروش به‌صورت اختصاصی برای هر کسب‌وکار انجام می‌شود.</span><span data-lang="en">We onboard businesses directly during our pilot phase to tailor accounting rules and sales workflows.</span></p>
+    </div>
+    <div class="plans"><div class="plan reveal"><div class="ptop"><h3><span data-lang="fa">پایه (Starter)</span><span data-lang="en">Starter</span></h3><span class="pblob mint"></span></div><p class="pnote"><span data-lang="fa">پایلوت اختصاصی — تماس بگیرید</span><span data-lang="en">Dedicated pilot — contact us</span></p><p class="pdesc"><span data-lang="fa">مناسب کسب‌وکارهای خرد برای اتوماسیون فروش محاوره‌ای و ثبت اسناد مالی پایه.</span><span data-lang="en">For solo operators and micro-businesses automating chat sales and core bookkeeping.</span></p><hr><ul class="checks"><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">عامل فروش هوشمند همدست روی یک کانال ارتباطی</span><span data-lang="en">Hamdast AI sales agent for 1 messaging channel</span></span></li><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">هستهٔ حسابداری ابری همتراز و صدور فاکتور راست‌به‌چپ</span><span data-lang="en">Hamtaraz core cloud ledger & RTL invoicing</span></span></li><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">گزارش هفتگی عملکرد مدیریت در همراز</span><span data-lang="en">Weekly Hamraz owner summary report</span></span></li></ul><a class="btn btn-secondary" href="mailto:sina@mmd30na.cloud?subject=Ham%20Starter%20Pilot"><svg class="arr" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0l6-6m-6 6l6 6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-lang="fa">تماس بگیرید</span><span data-lang="en">Contact us</span></a></div><div class="plan hi reveal"><div class="ptop"><h3><span data-lang="fa">رشد (Growth)</span><span data-lang="en">Growth</span></h3><span class="pblob sun"></span></div><p class="pnote"><span data-lang="fa">پایلوت اختصاصی — تماس بگیرید</span><span data-lang="en">Dedicated pilot — contact us</span></p><p class="pdesc"><span data-lang="fa">مناسب کسب‌وکارهای در حال رشد با نیاز به فروش چندکاناله، حسابداری کامل و داشبورد مدیریتی درلحظه.</span><span data-lang="en">For active SMBs requiring multi-channel AI sales, full statutory accounting, and real-time BI.</span></p><hr><ul class="checks"><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">همدست چندکاناله با تطبیق خودکار پرداخت‌ها</span><span data-lang="en">Hamdast multi-channel sales & payment reconciliation</span></span></li><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">حسابداری کامل همتراز منطبق با قوانین مالی و مالیاتی منطقه</span><span data-lang="en">Full Hamtaraz Middle-East accounting & tax rules</span></span></li><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">داشبورد درلحظهٔ همراز و پرسش‌وپاسخ تحلیلی ویژهٔ مدیر</span><span data-lang="en">Real-time Hamraz private owner BI & natural-language Q&A</span></span></li></ul><a class="btn btn-primary" href="mailto:sina@mmd30na.cloud?subject=Ham%20Growth%20Pilot"><svg class="arr" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0l6-6m-6 6l6 6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-lang="fa">تماس بگیرید</span><span data-lang="en">Contact us</span></a></div><div class="plan reveal"><div class="ptop"><h3><span data-lang="fa">تجاری (Business)</span><span data-lang="en">Business</span></h3><span class="pblob lilac"></span></div><p class="pnote"><span data-lang="fa">پایلوت اختصاصی — تماس بگیرید</span><span data-lang="en">Dedicated pilot — contact us</span></p><p class="pdesc"><span data-lang="fa">مناسب مجموعه‌های چندشعبه‌ای با نیاز به گردش‌کار سفارشی، استقرار اختصاصی و اتصال API.</span><span data-lang="en">For multi-branch operations needing custom workflows, dedicated onboarding, and API integrations.</span></p><hr><ul class="checks"><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">قواعد اختصاصی CRM و موتور گردش‌کار در همدست</span><span data-lang="en">Custom Hamdast CRM & workflow engine rules</span></span></li><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">مدیریت چند مرکز هزینه و سطوح دسترسی پیشرفته در همتراز</span><span data-lang="en">Multi-entity Hamtaraz ledgers & role permissions</span></span></li><li><svg class="ck" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="currentColor" opacity=".16"/><path d="M6.5 11.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span data-lang="fa">گزارش‌های تلفیقی همراز و پشتیبانی اختصاصی استقرار</span><span data-lang="en">Executive multi-branch Hamraz forecasting & priority support</span></span></li></ul><a class="btn btn-secondary" href="mailto:sina@mmd30na.cloud?subject=Ham%20Business%20Pilot"><svg class="arr" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0l6-6m-6 6l6 6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-lang="fa">تماس بگیرید</span><span data-lang="en">Contact us</span></a></div></div>
+  </div>
+</section>
+
+<section class="sec" id="founder">
+  <div class="wrap founder">
+    <div class="f-copy reveal">
+      <span class="chip"><span data-lang="fa">تیم موسس · بنیان‌گذار</span><span data-lang="en">Leadership · Founder</span></span>
+      <h2><span data-lang="fa">سینا رئیسی (Sina Raisi)</span><span data-lang="en">Sina Raisi</span></h2>
+      <p class="f-role"><span data-lang="fa">بنیان‌گذار، همـ (Ham)</span><span data-lang="en">Founder, Ham</span></p>
+      <p class="f-bio"><span data-lang="fa">بیوگرافی بنیان‌گذار به‌زودی — تجربه در حسابداری مالی، گردش‌کار دفترداری، اتوماسیون CRM و طراحی سیستم‌های چندعاملهٔ هوش مصنوعی.</span><span data-lang="en">Founder bio coming soon — domain experience in financial accounting, bookkeeping workflows, CRM automation, and multi-agent AI system design.</span></p>
+      <div class="links"><a class="lpill" href="https://www.linkedin.com" rel="noopener" target="_blank">LinkedIn</a><a class="lpill t" href="mailto:sina@mmd30na.cloud">sina@mmd30na.cloud</a></div>
+    </div>
+    <div class="f-photo reveal" aria-hidden="true"><span class="sunb"></span><span class="cor"></span><div class="slot"><b><span data-lang="fa">سینا رئیسی</span><span data-lang="en">Sina Raisi</span></b><small><span data-lang="fa">بنیان‌گذار، همـ</span><span data-lang="en">Founder, Ham</span></small></div><span class="spk"><svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z" fill="currentColor"/></svg></span></div>
+  </div>
+</section>
+
+<section class="wrap" style="padding:40px 0 80px">
+  <div class="cta reveal">
+    <span class="bl b1"></span><span class="bl b2"></span><span class="bl b3"></span><span class="bl b4"></span>
+    <h2><span data-lang="fa">درخواست دسترسی آزمایشی (پایلوت)</span><span data-lang="en">Request Pilot Access</span></h2>
+    <p><span data-lang="fa">در مرحلهٔ پایلوت، راه‌اندازی و تنظیم قواعد حسابداری و فروش به‌صورت اختصاصی برای هر کسب‌وکار انجام می‌شود.</span><span data-lang="en">We onboard businesses directly during our pilot phase to tailor accounting rules and sales workflows.</span></p>
+    <div class="ctas" style="justify-content:center"><a class="btn btn-dark" href="mailto:sina@mmd30na.cloud?subject=Ham%20Pilot%20Access"><svg class="arr" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0l6-6m-6 6l6 6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-lang="fa">تماس با ما</span><span data-lang="en">Contact Us</span></a><a class="btn btn-ghost-light" href="mailto:sina@mmd30na.cloud">sina@mmd30na.cloud</a></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ftop">
+      <div class="fbrand"><span class="wm"><span data-lang="fa">همـ</span><span data-lang="en">Ham</span><span class="wm-suf" data-rot><span data-lang="fa" class="on">ـدست</span><span data-lang="fa">ـتراز</span><span data-lang="fa">ـراز</span><span data-lang="en" class="on">dast</span><span data-lang="en">taraz</span><span data-lang="en">raz</span></span></span><p><span data-lang="fa">مجموعه کسب‌وکار هوشمند همـ — همتراز، همراز، همدست</span><span data-lang="en">Ham — AI Business Suite: Hamtaraz, Hamraz, Hamdast</span></p></div>
+      <div class="fcols">
+        <div class="fcol"><b><span data-lang="fa">ماژول‌ها</span><span data-lang="en">Modules</span></b><a href="#modules"><span data-lang="fa">همتراز</span><span data-lang="en">Hamtaraz</span></a><a href="#modules"><span data-lang="fa">همراز</span><span data-lang="en">Hamraz</span></a><a href="#modules"><span data-lang="fa">همدست</span><span data-lang="en">Hamdast</span></a></div>
+        <div class="fcol"><b><span data-lang="fa">همـ</span><span data-lang="en">Ham</span></b><a href="#ai"><span data-lang="fa">معماری هوش مصنوعی</span><span data-lang="en">AI Architecture</span></a><a href="#traction"><span data-lang="fa">اجرای عملیاتی</span><span data-lang="en">Traction</span></a><a href="#pricing"><span data-lang="fa">تعرفه‌ها</span><span data-lang="en">Pricing</span></a><a href="#founder"><span data-lang="fa">بنیان‌گذار</span><span data-lang="en">Founder</span></a></div>
+        <div class="fcol"><b><span data-lang="fa">تماس</span><span data-lang="en">Contact</span></b><a href="mailto:sina@mmd30na.cloud">sina@mmd30na.cloud</a><a href="https://mmd30na.cloud/">mmd30na.cloud</a><a href="https://www.linkedin.com" rel="noopener" target="_blank">LinkedIn</a></div>
+      </div>
+    </div>
+    <div class="fbot"><span>© 2026 Ham · mmd30na.cloud</span><nav><a href="/privacy.html"><span data-lang="fa">حریم خصوصی</span><span data-lang="en">Privacy Policy</span></a><a href="/terms.html"><span data-lang="fa">شرایط استفاده</span><span data-lang="en">Terms of Service</span></a></nav></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function setLang(l){root.lang=l;root.dir=l==='fa'?'rtl':'ltr';try{localStorage.setItem('ham-lang',l)}catch(e){}}
+  var t=document.getElementById('langToggle');
+  if(t)t.addEventListener('click',function(){setLang(root.lang==='fa'?'en':'fa')});
+
+  // rotating wordmark suffix + taglines (each lang group rotates independently)
+  var rots=[].slice.call(document.querySelectorAll('[data-rot]'));
+  if(!reduce){var k=0;setInterval(function(){k++;rots.forEach(function(r){['fa','en'].forEach(function(l){var items=[].slice.call(r.querySelectorAll(':scope > [data-lang="'+l+'"]'));if(!items.length)return;var cur=items.findIndex(function(x){return x.classList.contains('on')});var nx=(cur+1)%items.length;items.forEach(function(x){x.classList.remove('out')});if(cur>-1){items[cur].classList.remove('on');items[cur].classList.add('out')}items[nx].classList.add('on');setTimeout(function(){items.forEach(function(x,i){if(i!==nx)x.classList.remove('out')})},500)})})},1800)}
+
+  // hero chat sequence
+  var seq=[].slice.call(document.querySelectorAll('#thread [data-seq]'));
+  if(reduce){seq.forEach(function(e){if(e.hasAttribute('data-typing'))e.classList.add('gone');else e.classList.add('show')})}
+  else{
+    var run=function(){
+      seq.forEach(function(e){e.classList.remove('show','gone')});
+      var t0=400;
+      seq.forEach(function(e,i){
+        if(e.hasAttribute('data-typing')){setTimeout(function(){e.classList.add('show')},t0);t0+=1100;setTimeout(function(){e.classList.add('gone')},t0)}
+        else{setTimeout(function(){e.classList.add('show')},t0);t0+=650}
+      });
+      setTimeout(run,t0+3800);
+    };
+    seq.forEach(function(e){if(e.hasAttribute('data-typing'))e.classList.add('gone')});
+    run();
+  }
+
+  // pipeline active step cycling
+  var steps=[].slice.call(document.querySelectorAll('.pstep'));
+  if(steps.length&&!reduce){var s=0;setInterval(function(){steps.forEach(function(x,i){x.classList.toggle('active',i===s)});s=(s+1)%steps.length},1600)}
+
+  // scroll reveals + count-up
+  var fa=function(n){return String(n).replace(/\d/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'[d]})};
+  function countUp(el){var b=el.querySelector('.num');if(!b||reduce)return;var target=parseInt(b.getAttribute('data-en'),10);var spans=b.querySelectorAll('[data-lang]');var t1=null;function step(ts){if(!t1)t1=ts;var p=Math.min(1,(ts-t1)/900);var v=Math.round(target*p);spans[0].textContent=fa(v);spans[1].textContent=v;if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
+  var els=[].slice.call(document.querySelectorAll('.reveal,.module'));
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var el=en.target;var d=0;if(el.parentElement){var sib=[].slice.call(el.parentElement.children).filter(function(c){return c.classList.contains('reveal')});d=Math.max(0,sib.indexOf(el))*80}el.style.transitionDelay=d+'ms';el.classList.add('in');if(el.id==='stats')[].slice.call(el.querySelectorAll('.stat')).forEach(countUp);io.unobserve(el)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){io.observe(e)});
+  }else{els.forEach(function(e){e.classList.add('in')})}
+})();
+</script>
 </body>
 </html>
